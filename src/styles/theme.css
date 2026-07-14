@@ -1,0 +1,108 @@
+@source "./";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: oklch(0.985 0 0);
+  --foreground: oklch(0.21 0.006 285.885);
+
+  --foreground-muted: oklch(0.37 0.013 285.805);
+  --foreground-subtle: oklch(0.552 0.016 285.938);
+
+  --border: oklch(0.92 0.004 286.32);
+  --border-hover: oklch(0.871 0.006 286.286);
+
+  --decoration: oklch(0.871 0.006 286.286);
+  --decoration-hover: oklch(0.552 0.016 285.938);
+
+  --surface-hover: oklch(0.967 0.001 286.375);
+
+  --danger: oklch(0.577 0.245 27.325);
+  --danger-hover: oklch(0.505 0.213 27.518);
+}
+
+.dark {
+  --background: oklch(0.21 0.006 285.885);
+  --foreground: oklch(0.967 0.001 286.375);
+
+  --foreground-muted: oklch(0.871 0.006 286.286);
+  --foreground-subtle: oklch(0.552 0.016 285.938);
+
+  --border: oklch(0.37 0.013 285.805);
+  --border-hover: oklch(0.442 0.017 285.786);
+
+  --decoration: oklch(0.442 0.017 285.786);
+  --decoration-hover: oklch(0.705 0.015 286.067);
+
+  --surface-hover: oklch(0.274 0.006 286.033);
+
+  --danger: oklch(0.637 0.237 25.331);
+  --danger-hover: oklch(0.577 0.245 27.325);
+}
+
+@theme inline {
+  --color-background: var(--background);
+
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+
+  --color-decoration: var(--decoration);
+  --color-decoration-hover: var(--decoration-hover);
+
+  --color-surface-hover: var(--surface-hover);
+
+  --color-danger: var(--danger);
+  --color-danger-hover: var(--danger-hover);
+}
+
+@theme {
+  --font-sans: var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif);
+  --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, monospace);
+
+  --animate-reveal: reveal 0.7s ease-in-out;
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      filter: brightness(1) blur(15px);
+      scale: 1.0125;
+    }
+    10% {
+      opacity: 1;
+      filter: brightness(1.25) blur(10px);
+    }
+    100% {
+      opacity: 1;
+      filter: brightness(1) blur(0);
+      scale: 1;
+    }
+  }
+}
+
+@utility link {
+  @apply decoration-decoration hover:decoration-decoration-hover underline decoration-1 underline-offset-4;
+
+  @media (prefers-reduced-motion: no-preference) {
+    @apply transition duration-300 ease-in-out;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-sans text-pretty antialiased;
+  }
+
+  a,
+  button {
+    @apply cursor-pointer;
+  }
+
+  button:disabled,
+  button[disabled] {
+    @apply cursor-not-allowed;
+  }
+}
