@@ -1,6 +1,6 @@
 {
   "name": "antlitz",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A minimal design system for React 19 and Tailwind CSS v4.",
   "homepage": "https://github.com/alihanayaz/antlitz#readme",
   "repository": {
