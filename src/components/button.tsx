@@ -15,11 +15,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        solid: "bg-foreground text-background hover:bg-foreground-muted",
-        outline:
-          "border border-border hover:border-border-hover hover:bg-surface-hover",
-        ghost: "hover:bg-surface-hover bg-transparent",
-        danger: "bg-danger text-background hover:bg-danger-hover",
+        solid: "bg-primary text-primary-foreground hover:bg-primary/90",
+        outline: "border border-border hover:bg-muted",
+        ghost: "hover:bg-muted bg-transparent",
+        danger: "bg-danger text-danger-foreground hover:bg-danger/90",
         link: "link",
         plain: "bg-transparent",
       },
@@ -39,8 +38,8 @@ const buttonVariants = cva(
       },
       tone: {
         base: "text-foreground",
-        muted: "text-foreground-muted hover:text-foreground",
-        subtle: "text-foreground-subtle hover:text-foreground",
+        muted: "text-muted-foreground hover:text-foreground",
+        subtle: "text-subtle-foreground hover:text-foreground",
       },
     },
     defaultVariants: {
@@ -52,12 +51,11 @@ const buttonVariants = cva(
     compoundVariants: [
       {
         variant: "solid",
-        className: "text-background hover:text-background",
+        className: "text-primary-foreground hover:text-primary-foreground",
       },
       {
         variant: "danger",
-        className:
-          "text-background hover:text-background dark:text-foreground dark:hover:text-foreground",
+        className: "text-danger-foreground hover:text-danger-foreground",
       },
     ],
   },

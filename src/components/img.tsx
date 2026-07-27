@@ -56,7 +56,7 @@ export function Img({
       loading={loading}
       decoding={decoding}
       className={cn(
-        "bg-surface-hover",
+        "bg-muted",
         shouldReveal && "motion-safe:animate-reveal",
         className,
       )}

@@ -10,7 +10,7 @@ export function Skeleton({ ref, className, ...props }: SkeletonProps) {
     <div
       ref={ref}
       aria-hidden="true"
-      className={cn("bg-border w-full animate-pulse", className)}
+      className={cn("bg-muted w-full animate-pulse", className)}
       {...props}
     />
   );

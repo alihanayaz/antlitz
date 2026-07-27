@@ -147,7 +147,7 @@ function TypographySection() {
         <Text
           as="code"
           size="sm"
-          className="border-border bg-surface-hover border px-1.5 py-0.5 font-mono"
+          className="border-border bg-muted border px-1.5 py-0.5 font-mono"
         >
           inline code
         </Text>
