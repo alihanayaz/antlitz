@@ -20,6 +20,10 @@ export default defineConfig({
         find: /^antlitz$/,
         replacement: fileURLToPath(new URL("../src/index.ts", import.meta.url)),
       },
+      {
+        find: /^@\//,
+        replacement: fileURLToPath(new URL("../src/", import.meta.url)),
+      },
     ],
   },
 });

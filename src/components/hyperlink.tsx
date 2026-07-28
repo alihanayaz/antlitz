@@ -1,8 +1,7 @@
 import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
-import { cn } from "../lib/cn.js";
-import { appendRefParam, isExternalLink } from "../lib/url.js";
+import { appendRefParam, cn, isExternalLink } from "@/lib";
 
 const hyperlinkVariants = cva("break-words", {
   variants: {

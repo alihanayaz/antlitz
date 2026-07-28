@@ -1,3 +1,3 @@
-export * from "../index.js";
-export { Hyperlink, type NextHyperlinkProps } from "./hyperlink.js";
-export { Img, type NextImgProps } from "./img.js";
+export * from "@/index";
+export { Hyperlink, type NextHyperlinkProps } from "./hyperlink";
+export { Img, type NextImgProps } from "./img";

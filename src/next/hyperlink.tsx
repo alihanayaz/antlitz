@@ -1,8 +1,5 @@
 import NextLink, { type LinkProps } from "next/link";
-import {
-  Hyperlink as BaseHyperlink,
-  type HyperlinkProps,
-} from "../components/hyperlink.js";
+import { Hyperlink as BaseHyperlink, type HyperlinkProps } from "@/components";
 
 export type NextHyperlinkProps = Omit<HyperlinkProps, "as"> &
   Omit<LinkProps, keyof HyperlinkProps | "as">;
