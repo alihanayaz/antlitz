@@ -41,12 +41,15 @@ export function Img({
   const resolvedSrc = (hasError || !src?.trim()) && fallback ? fallback : src;
   const Comp: React.ElementType = as ?? "img";
 
-  const assignRef = (node: HTMLImageElement | null) => {
-    cachedAtMount.current = Boolean(node?.complete);
-    if (typeof ref === "function") ref(node);
-    else if (ref)
-      (ref as React.RefObject<HTMLImageElement | null>).current = node;
-  };
+  const assignRef = React.useCallback(
+    (node: HTMLImageElement | null) => {
+      if (node) cachedAtMount.current = node.complete;
+      if (typeof ref === "function") ref(node);
+      else if (ref)
+        (ref as React.RefObject<HTMLImageElement | null>).current = node;
+    },
+    [ref],
+  );
 
   return (
     <Comp

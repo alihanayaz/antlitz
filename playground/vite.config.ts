@@ -6,14 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   root: fileURLToPath(new URL(".", import.meta.url)),
   cacheDir: fileURLToPath(new URL("../node_modules/.vite", import.meta.url)),
-  plugins: [
-    react({
-      babel: {
-        plugins: [["babel-plugin-react-compiler", { target: "19" }]],
-      },
-    }),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: [
       {
