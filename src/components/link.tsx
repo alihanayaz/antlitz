@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 import { appendRefParam, cn, isExternalLink } from "@/lib";
 
-const hyperlinkVariants = cva("break-words", {
+const linkVariants = cva("break-words", {
   variants: {
     variant: {
       default: "link",
@@ -15,10 +15,10 @@ const hyperlinkVariants = cva("break-words", {
   },
 });
 
-export interface HyperlinkProps
+export interface LinkProps
   extends
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
-    VariantProps<typeof hyperlinkVariants> {
+    VariantProps<typeof linkVariants> {
   asChild?: boolean;
   as?: React.ElementType;
   href?: string;
@@ -26,7 +26,7 @@ export interface HyperlinkProps
   ref?: React.Ref<HTMLAnchorElement>;
 }
 
-export function Hyperlink({
+export function Link({
   asChild = false,
   as,
   href = "#",
@@ -38,10 +38,10 @@ export function Hyperlink({
   ref,
   className,
   ...props
-}: HyperlinkProps) {
+}: LinkProps) {
   const isExternal = isExternalLink(href);
   const classes = cn(
-    hyperlinkVariants({ variant }),
+    linkVariants({ variant }),
     isExternal && variant !== "plain" && "after:content-['_↗']",
     className,
   );

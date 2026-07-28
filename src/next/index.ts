@@ -1,3 +1,3 @@
 export * from "@/index";
-export { Hyperlink, type NextHyperlinkProps } from "./hyperlink";
-export { Img, type NextImgProps } from "./img";
+export { Image, type NextImageProps } from "./image";
+export { Link, type NextLinkProps } from "./link";

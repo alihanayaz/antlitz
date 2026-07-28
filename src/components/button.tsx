@@ -2,7 +2,7 @@ import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
-import { SpinnerIcon } from "./icon";
+import { Spinner } from "./spinner";
 
 const buttonVariants = cva(
   [
@@ -103,7 +103,7 @@ export function Button({
       className={cn(buttonVariants({ variant, size, radius, tone }), className)}
       {...props}
     >
-      {loading && <SpinnerIcon />}
+      {loading && <Spinner />}
       <Slottable>{children}</Slottable>
     </Comp>
   );

@@ -2,11 +2,11 @@ import type { ReactNode, SVGProps } from "react";
 import {
   Button,
   Heading,
-  Hyperlink,
   Icon,
-  Img,
+  Image,
+  Link,
   Skeleton,
-  SpinnerIcon,
+  Spinner,
   Text,
 } from "antlitz";
 
@@ -248,14 +248,14 @@ function ButtonsSection() {
 
       <Row label="Polymorphism" align="center">
         <Button variant="outline" asChild>
-          <Hyperlink href="/playground" variant="plain">
+          <Link href="/playground" variant="plain">
             Internal
-          </Hyperlink>
+          </Link>
         </Button>
         <Button asChild>
-          <Hyperlink href="https://example.com" variant="plain">
+          <Link href="https://example.com" variant="plain">
             External
-          </Hyperlink>
+          </Link>
         </Button>
       </Row>
     </Section>
@@ -266,29 +266,29 @@ function LinksSection() {
   return (
     <Section title="Links">
       <Row label="Internal Routing">
-        <Hyperlink href="/playground">Internal route</Hyperlink>
+        <Link href="/playground">Internal route</Link>
       </Row>
 
       <Row label="Cross-Origin Navigation">
-        <Hyperlink href="https://example.com">Cross-origin reference</Hyperlink>
+        <Link href="https://example.com">Cross-origin reference</Link>
       </Row>
 
       <Row label="Protocol Exemption">
-        <Hyperlink href="mailto:alihan@alihanayaz.com">Email</Hyperlink>
-        <Hyperlink href="tel:+15555550123">Phone</Hyperlink>
+        <Link href="mailto:alihan@alihanayaz.com">Email</Link>
+        <Link href="tel:+15555550123">Phone</Link>
       </Row>
 
       <Row label="Variant">
-        <Hyperlink href="/playground" variant="plain">
+        <Link href="/playground" variant="plain">
           No underline
-        </Hyperlink>
+        </Link>
       </Row>
 
       <Row label="Polymorphism" align="center">
         <Button variant="outline" asChild>
-          <Hyperlink href="/playground" variant="plain">
+          <Link href="/playground" variant="plain">
             Wrapped in Button
-          </Hyperlink>
+          </Link>
         </Button>
       </Row>
 
@@ -343,7 +343,7 @@ function IconsSection() {
       </Row>
 
       <Row label="Status Indicator" align="center">
-        <SpinnerIcon size={20} />
+        <Spinner size={20} />
         <Button loading>Processing</Button>
       </Row>
     </Section>
@@ -354,7 +354,7 @@ function MediaSection() {
   return (
     <Section title="Media">
       <Row label="Successful Load">
-        <Img
+        <Image
           src="https://picsum.photos/seed/antlitz/160"
           alt="Randomly generated photograph"
           width={160}
@@ -364,7 +364,7 @@ function MediaSection() {
       </Row>
 
       <Row label="Error Fallback">
-        <Img
+        <Image
           src="https://this-domain-does-not-exist.invalid/broken.jpg"
           alt="Intentionally broken source"
           fallback="https://placehold.co/160?text=Fallback"

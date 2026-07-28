@@ -3,7 +3,7 @@
 import * as React from "react";
 import { cn } from "@/lib";
 
-export interface ImgProps extends Omit<
+export interface ImageProps extends Omit<
   React.ImgHTMLAttributes<HTMLImageElement>,
   "src" | "alt"
 > {
@@ -14,7 +14,7 @@ export interface ImgProps extends Omit<
   ref?: React.Ref<HTMLImageElement>;
 }
 
-export function Img({
+export function Image({
   as,
   src,
   alt,
@@ -26,7 +26,7 @@ export function Img({
   onError,
   onLoad,
   ...props
-}: ImgProps) {
+}: ImageProps) {
   const [hasError, setHasError] = React.useState(false);
   const [prevSrc, setPrevSrc] = React.useState(src);
   const [shouldReveal, setShouldReveal] = React.useState(false);
