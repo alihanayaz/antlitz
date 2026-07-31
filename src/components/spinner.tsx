@@ -9,7 +9,7 @@ export function Spinner({ className, ...props }: SpinnerProps) {
       variant="stroke"
       role="status"
       aria-label="Loading"
-      className={cn("motion-safe:animate-spin", className)}
+      className={cn("animate-spin", className)}
       {...props}
     >
       <path d="M21 12a9 9 0 1 1-6.219-8.56" />
