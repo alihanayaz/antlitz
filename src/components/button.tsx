@@ -10,7 +10,7 @@ const buttonVariants = cva(
     "motion-safe:transition-colors motion-safe:duration-300",
     "disabled:pointer-events-none disabled:opacity-50",
     "aria-disabled:pointer-events-none aria-disabled:opacity-50",
-    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0",
   ],
   {
     variants: {
@@ -103,7 +103,7 @@ export function Button({
       className={cn(buttonVariants({ variant, size, radius, tone }), className)}
       {...props}
     >
-      {loading && <Spinner />}
+      {loading && <Spinner size={16} />}
       <Slottable>{children}</Slottable>
     </Comp>
   );
