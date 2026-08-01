@@ -1,6 +1,7 @@
 @source "./";
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant anchor (a&);
 
 :root {
   --background: oklch(0.985 0 0);

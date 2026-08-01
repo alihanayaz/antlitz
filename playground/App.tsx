@@ -1,5 +1,6 @@
 import type { ReactNode, SVGProps } from "react";
 import {
+  Badge,
   Button,
   Heading,
   Icon,
@@ -262,6 +263,87 @@ function ButtonsSection() {
   );
 }
 
+function BadgesSection() {
+  return (
+    <Section title="Badges">
+      <Row label="Variant" align="center">
+        <Badge variant="solid">Solid</Badge>
+        <Badge variant="soft">Soft</Badge>
+        <Badge variant="outline">Outline</Badge>
+        <Badge variant="danger">Danger</Badge>
+        <Badge variant="plain">Plain</Badge>
+      </Row>
+
+      <Row label="Size" align="center">
+        <Badge size="sm">Small</Badge>
+        <Badge size="md">Medium</Badge>
+        <Badge size="lg">Large</Badge>
+      </Row>
+
+      <Row label="Corner Radius" align="center">
+        <Badge variant="outline" radius="none">
+          None
+        </Badge>
+        <Badge variant="outline" radius="sm">
+          Small
+        </Badge>
+        <Badge variant="outline" radius="md">
+          Medium
+        </Badge>
+        <Badge variant="outline" radius="lg">
+          Large
+        </Badge>
+        <Badge variant="outline" radius="full">
+          Full
+        </Badge>
+      </Row>
+
+      <Row label="Semantic Tone" align="center">
+        <Badge variant="outline" tone="base">
+          Base
+        </Badge>
+        <Badge variant="outline" tone="muted">
+          Muted
+        </Badge>
+        <Badge variant="outline" tone="subtle">
+          Subtle
+        </Badge>
+      </Row>
+
+      <Row label="Composition" align="center">
+        <Badge variant="soft" radius="full">
+          <Icon size={12}>
+            <PlusPath />
+          </Icon>
+          With icon
+        </Badge>
+        <Badge variant="outline">
+          <Spinner size={12} />
+          Syncing
+        </Badge>
+      </Row>
+
+      <Row label="Polymorphism" align="center">
+        <Badge asChild>
+          <Link href="/playground" variant="plain">
+            Internal
+          </Link>
+        </Badge>
+        <Badge variant="outline" asChild>
+          <Link href="https://example.com" variant="plain">
+            External
+          </Link>
+        </Badge>
+      </Row>
+
+      <Text size="sm" tone="subtle" className="max-w-prose">
+        Badges render as a span by default and stay inert; hover feedback only
+        applies when composed onto an anchor.
+      </Text>
+    </Section>
+  );
+}
+
 function LinksSection() {
   return (
     <Section title="Links">
@@ -420,6 +502,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <Masthead mode={mode} />
       <TypographySection />
       <ButtonsSection />
+      <BadgesSection />
       <LinksSection />
       <IconsSection />
       <MediaSection />
