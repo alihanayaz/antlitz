@@ -15,7 +15,13 @@ const badgeVariants = cva(
         solid: "bg-primary text-primary-foreground anchor:hover:bg-primary/90",
         soft: "bg-muted anchor:hover:bg-muted-hover",
         outline: "border-border border anchor:hover:bg-muted",
-        danger: "bg-danger text-danger-foreground anchor:hover:bg-danger/90",
+        danger:
+          "bg-danger-soft text-danger-soft-foreground anchor:hover:bg-danger-soft-hover",
+        success:
+          "bg-success-soft text-success-soft-foreground anchor:hover:bg-success-soft-hover",
+        warning:
+          "bg-warning-soft text-warning-soft-foreground anchor:hover:bg-warning-soft-hover",
+        info: "bg-info-soft text-info-soft-foreground anchor:hover:bg-info-soft-hover",
         plain: "bg-transparent",
       },
       size: {
@@ -44,7 +50,10 @@ const badgeVariants = cva(
     },
     compoundVariants: [
       { variant: "solid", className: "text-primary-foreground" },
-      { variant: "danger", className: "text-danger-foreground" },
+      { variant: "danger", className: "text-danger-soft-foreground" },
+      { variant: "success", className: "text-success-soft-foreground" },
+      { variant: "warning", className: "text-warning-soft-foreground" },
+      { variant: "info", className: "text-info-soft-foreground" },
     ],
   },
 );
@@ -52,7 +61,10 @@ const badgeVariants = cva(
 type BadgeTone = VariantProps<typeof badgeVariants>["tone"];
 
 type BadgeToneProps =
-  | { variant?: "solid" | "danger"; tone?: never }
+  | {
+      variant?: "solid" | "danger" | "success" | "warning" | "info";
+      tone?: never;
+    }
   | { variant: "soft" | "outline" | "plain"; tone?: BadgeTone };
 
 export type BadgeProps = React.HTMLAttributes<HTMLSpanElement> &

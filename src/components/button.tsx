@@ -19,7 +19,9 @@ const buttonVariants = cva(
         soft: "bg-muted hover:bg-muted-hover",
         outline: "border border-border hover:bg-muted",
         ghost: "hover:bg-muted bg-transparent",
-        danger: "bg-danger text-danger-foreground hover:bg-danger/90",
+        danger: "bg-danger text-danger-foreground hover:bg-danger-hover",
+        "danger-soft":
+          "bg-danger-soft text-danger-soft-foreground hover:bg-danger-soft-hover",
         link: "link",
         plain: "bg-transparent",
       },
@@ -58,6 +60,11 @@ const buttonVariants = cva(
         variant: "danger",
         className: "text-danger-foreground hover:text-danger-foreground",
       },
+      {
+        variant: "danger-soft",
+        className:
+          "text-danger-soft-foreground hover:text-danger-soft-foreground",
+      },
     ],
   },
 );
@@ -65,7 +72,7 @@ const buttonVariants = cva(
 type ButtonTone = VariantProps<typeof buttonVariants>["tone"];
 
 type ButtonToneProps =
-  | { variant?: "solid" | "danger"; tone?: never }
+  | { variant?: "solid" | "danger" | "danger-soft"; tone?: never }
   | {
       variant: "soft" | "outline" | "ghost" | "link" | "plain";
       tone?: ButtonTone;

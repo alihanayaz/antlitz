@@ -189,6 +189,7 @@ function ButtonsSection() {
         <Button variant="outline">Outline</Button>
         <Button variant="ghost">Ghost</Button>
         <Button variant="danger">Danger</Button>
+        <Button variant="danger-soft">Danger Soft</Button>
         <Button variant="link">Link</Button>
         <Button variant="plain">Plain</Button>
       </Row>
@@ -272,6 +273,9 @@ function BadgesSection() {
         <Badge variant="soft">Soft</Badge>
         <Badge variant="outline">Outline</Badge>
         <Badge variant="danger">Danger</Badge>
+        <Badge variant="success">Success</Badge>
+        <Badge variant="warning">Warning</Badge>
+        <Badge variant="info">Info</Badge>
         <Badge variant="plain">Plain</Badge>
       </Row>
 
@@ -327,12 +331,37 @@ function BadgesSection() {
       <Row label="Polymorphism" align="center">
         <Badge asChild>
           <Link href="/playground" variant="plain">
-            Internal
+            Solid
+          </Link>
+        </Badge>
+        <Badge variant="soft" asChild>
+          <Link href="/playground" variant="plain">
+            Soft
           </Link>
         </Badge>
         <Badge variant="outline" asChild>
           <Link href="https://example.com" variant="plain">
-            External
+            Outline
+          </Link>
+        </Badge>
+        <Badge variant="danger" asChild>
+          <Link href="/playground" variant="plain">
+            Danger
+          </Link>
+        </Badge>
+        <Badge variant="success" asChild>
+          <Link href="/playground" variant="plain">
+            Success
+          </Link>
+        </Badge>
+        <Badge variant="warning" asChild>
+          <Link href="/playground" variant="plain">
+            Warning
+          </Link>
+        </Badge>
+        <Badge variant="info" asChild>
+          <Link href="/playground" variant="plain">
+            Info
           </Link>
         </Badge>
       </Row>
