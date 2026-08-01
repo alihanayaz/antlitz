@@ -21,8 +21,8 @@ const textVariants = cva("leading-relaxed", {
     },
     tone: {
       base: "text-foreground",
-      muted: "text-muted-foreground",
-      subtle: "text-subtle-foreground",
+      muted: "text-foreground-muted",
+      subtle: "text-foreground-subtle",
     },
   },
   defaultVariants: {

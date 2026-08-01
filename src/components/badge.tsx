@@ -13,7 +13,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         solid: "bg-primary text-primary-foreground anchor:hover:bg-primary/90",
-        soft: "bg-muted anchor:hover:bg-border",
+        soft: "bg-muted anchor:hover:bg-muted-hover",
         outline: "border-border border anchor:hover:bg-muted",
         danger: "bg-danger text-danger-foreground anchor:hover:bg-danger/90",
         plain: "bg-transparent",
@@ -32,8 +32,8 @@ const badgeVariants = cva(
       },
       tone: {
         base: "text-foreground",
-        muted: "text-muted-foreground",
-        subtle: "text-subtle-foreground",
+        muted: "text-foreground-muted",
+        subtle: "text-foreground-subtle",
       },
     },
     defaultVariants: {

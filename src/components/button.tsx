@@ -16,7 +16,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         solid: "bg-primary text-primary-foreground hover:bg-primary/90",
-        soft: "bg-muted hover:bg-border",
+        soft: "bg-muted hover:bg-muted-hover",
         outline: "border border-border hover:bg-muted",
         ghost: "hover:bg-muted bg-transparent",
         danger: "bg-danger text-danger-foreground hover:bg-danger/90",
@@ -39,8 +39,8 @@ const buttonVariants = cva(
       },
       tone: {
         base: "text-foreground",
-        muted: "text-muted-foreground hover:text-foreground",
-        subtle: "text-subtle-foreground hover:text-foreground",
+        muted: "text-foreground-muted hover:text-foreground",
+        subtle: "text-foreground-subtle hover:text-foreground",
       },
     },
     defaultVariants: {

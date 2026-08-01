@@ -20,8 +20,8 @@ const headingVariants = cva("tracking-tight text-balance", {
     },
     tone: {
       base: "text-foreground",
-      muted: "text-muted-foreground",
-      subtle: "text-subtle-foreground",
+      muted: "text-foreground-muted",
+      subtle: "text-foreground-subtle",
     },
   },
   defaultVariants: {
