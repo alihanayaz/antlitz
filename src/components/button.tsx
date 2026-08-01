@@ -16,6 +16,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         solid: "bg-primary text-primary-foreground hover:bg-primary/90",
+        soft: "bg-muted hover:bg-border",
         outline: "border border-border hover:bg-muted",
         ghost: "hover:bg-muted bg-transparent",
         danger: "bg-danger text-danger-foreground hover:bg-danger/90",
@@ -65,7 +66,10 @@ type ButtonTone = VariantProps<typeof buttonVariants>["tone"];
 
 type ButtonToneProps =
   | { variant?: "solid" | "danger"; tone?: never }
-  | { variant: "outline" | "ghost" | "link" | "plain"; tone?: ButtonTone };
+  | {
+      variant: "soft" | "outline" | "ghost" | "link" | "plain";
+      tone?: ButtonTone;
+    };
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   Omit<VariantProps<typeof buttonVariants>, "variant" | "tone"> &

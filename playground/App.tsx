@@ -185,6 +185,7 @@ function ButtonsSection() {
     <Section title="Buttons">
       <Row label="Variant" align="center">
         <Button variant="solid">Solid</Button>
+        <Button variant="soft">Soft</Button>
         <Button variant="outline">Outline</Button>
         <Button variant="ghost">Ghost</Button>
         <Button variant="danger">Danger</Button>
