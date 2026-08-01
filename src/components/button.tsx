@@ -7,7 +7,7 @@ import { Spinner } from "./spinner";
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center gap-2 text-sm font-medium whitespace-nowrap select-none",
-    "motion-safe:transition-colors motion-safe:duration-300",
+    "transition-colors",
     "disabled:pointer-events-none disabled:opacity-50",
     "aria-disabled:pointer-events-none aria-disabled:opacity-50",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0",

@@ -6,7 +6,7 @@ import { cn } from "@/lib";
 const badgeVariants = cva(
   [
     "inline-flex w-fit shrink-0 items-center justify-center gap-1 text-xs font-medium whitespace-nowrap select-none",
-    "motion-safe:transition-colors motion-safe:duration-300",
+    "transition-colors",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0",
   ],
   {

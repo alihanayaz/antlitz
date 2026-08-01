@@ -58,6 +58,8 @@
   --font-sans: var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif);
   --font-mono: var(--font-geist-mono, ui-monospace, SFMono-Regular, monospace);
 
+  --default-transition-duration: 150ms;
+
   --animate-reveal: reveal 0.7s ease-in-out;
 
   @keyframes reveal {
@@ -79,11 +81,7 @@
 }
 
 @utility link {
-  @apply decoration-foreground-subtle hover:decoration-foreground-muted underline decoration-1 underline-offset-4;
-
-  @media (prefers-reduced-motion: no-preference) {
-    @apply transition duration-300 ease-in-out;
-  }
+  @apply decoration-foreground-subtle hover:decoration-foreground-muted underline decoration-1 underline-offset-4 transition-colors;
 }
 
 @layer base {
