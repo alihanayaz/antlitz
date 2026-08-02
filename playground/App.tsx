@@ -6,6 +6,7 @@ import {
   Icon,
   Image,
   Link,
+  Separator,
   Skeleton,
   Spinner,
   Text,
@@ -504,6 +505,39 @@ function SkeletonsSection() {
   );
 }
 
+function SeparatorsSection() {
+  return (
+    <Section title="Separators">
+      <Row label="Horizontal">
+        <div className="flex w-full max-w-xs flex-col gap-4">
+          <Text size="sm">Above the rule</Text>
+          <Separator />
+          <Text size="sm">Below the rule</Text>
+        </div>
+      </Row>
+
+      <Row label="Vertical" align="center">
+        <div className="flex h-6 items-center gap-4">
+          <Text size="sm">One</Text>
+          <Separator orientation="vertical" />
+          <Text size="sm">Two</Text>
+          <Separator orientation="vertical" />
+          <Text size="sm">Three</Text>
+        </div>
+      </Row>
+
+      <Row label="Decorative">
+        <div className="flex w-full max-w-xs flex-col gap-4">
+          <Text size="sm" tone="muted">
+            Hidden from assistive tech
+          </Text>
+          <Separator decorative />
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function Masthead({ mode }: { mode: "light" | "dark" }) {
   return (
     <header className="flex items-baseline justify-between gap-4">
@@ -536,6 +570,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <LinksSection />
       <IconsSection />
       <MediaSection />
+      <SeparatorsSection />
       <SkeletonsSection />
     </div>
   );
