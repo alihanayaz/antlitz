@@ -1,5 +1,6 @@
 import type { ReactNode, SVGProps } from "react";
 import {
+  Alert,
   Badge,
   Button,
   Heading,
@@ -22,6 +23,15 @@ function Mark(props: SVGProps<SVGSVGElement>) {
 
 function PlusPath() {
   return <path d="M12 5v14M5 12h14" />;
+}
+
+function AlertPath() {
+  return (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 8v4M12 16h.01" />
+    </>
+  );
 }
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
@@ -375,6 +385,99 @@ function BadgesSection() {
   );
 }
 
+function AlertsSection() {
+  return (
+    <Section title="Alerts">
+      <Row label="Variant">
+        <Alert variant="solid">Solid</Alert>
+        <Alert variant="soft">Soft</Alert>
+        <Alert variant="outline">Outline</Alert>
+        <Alert variant="danger">Danger</Alert>
+        <Alert variant="success">Success</Alert>
+        <Alert variant="warning">Warning</Alert>
+        <Alert variant="info">Info</Alert>
+        <Alert variant="plain">Plain</Alert>
+      </Row>
+
+      <Row label="Size">
+        <Alert size="sm">Small</Alert>
+        <Alert size="md">Medium</Alert>
+        <Alert size="lg">Large</Alert>
+      </Row>
+
+      <Row label="Corner Radius">
+        <Alert variant="outline" radius="none">
+          None
+        </Alert>
+        <Alert variant="outline" radius="sm">
+          Small
+        </Alert>
+        <Alert variant="outline" radius="md">
+          Medium
+        </Alert>
+        <Alert variant="outline" radius="lg">
+          Large
+        </Alert>
+      </Row>
+
+      <Row label="Semantic Tone">
+        <Alert variant="outline" tone="base">
+          Base
+        </Alert>
+        <Alert variant="outline" tone="muted">
+          Muted
+        </Alert>
+        <Alert variant="outline" tone="subtle">
+          Subtle
+        </Alert>
+      </Row>
+
+      <Row label="Composition">
+        <Alert variant="danger" radius="sm">
+          <Icon size={16}>
+            <AlertPath />
+          </Icon>
+          <div className="flex flex-col gap-1">
+            <Text as="span" size="sm" weight="semibold">
+              Payment failed
+            </Text>
+            <Text as="span" size="sm">
+              Your card was declined. Update your billing details and try again.
+            </Text>
+          </div>
+        </Alert>
+
+        <Alert variant="outline" radius="sm">
+          <Spinner size={16} />
+          <div className="flex flex-col gap-1">
+            <Text as="span" size="sm" weight="semibold">
+              Deploying
+            </Text>
+            <Text as="span" size="sm" tone="muted">
+              This usually takes about a minute.
+            </Text>
+          </div>
+        </Alert>
+      </Row>
+
+      <Row label="Live Region">
+        <Alert variant="info" live="polite">
+          Announced politely (role=status)
+        </Alert>
+        <Alert variant="danger" live="assertive">
+          Announced immediately (role=alert)
+        </Alert>
+      </Row>
+
+      <Text size="sm" tone="subtle" className="max-w-prose">
+        Alerts are silent to assistive tech by default. Opt into announcement
+        with <code className="font-mono">live</code> only when the alert appears
+        in response to something the user did.
+      </Text>
+    </Section>
+  );
+}
+
 function LinksSection() {
   return (
     <Section title="Links">
@@ -567,6 +670,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <TypographySection />
       <ButtonsSection />
       <BadgesSection />
+      <AlertsSection />
       <LinksSection />
       <IconsSection />
       <MediaSection />
