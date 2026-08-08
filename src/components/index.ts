@@ -9,6 +9,7 @@ export * from "./image";
 export * from "./input";
 export * from "./label";
 export * from "./link";
+export * from "./radio";
 export * from "./separator";
 export * from "./skeleton";
 export * from "./spinner";
