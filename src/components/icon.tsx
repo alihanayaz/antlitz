@@ -23,7 +23,7 @@ export interface IconProps
 export function Icon({
   as: Comp = "svg",
   children,
-  variant,
+  variant = "stroke",
   size = 24,
   viewBox = "0 0 24 24",
   role,

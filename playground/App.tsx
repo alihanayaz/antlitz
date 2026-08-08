@@ -4,6 +4,7 @@ import {
   Badge,
   Button,
   Card,
+  Checkbox,
   Heading,
   Icon,
   Image,
@@ -790,6 +791,72 @@ function InputsSection() {
   );
 }
 
+function CheckboxesSection() {
+  return (
+    <Section title="Checkboxes">
+      <Row label="Selection State" align="center">
+        <Checkbox aria-label="Unchecked" />
+        <Checkbox defaultChecked aria-label="Checked" />
+        <Checkbox indeterminate aria-label="Indeterminate" />
+      </Row>
+
+      <Row label="Size" align="center">
+        <Checkbox size="sm" defaultChecked aria-label="Small" />
+        <Checkbox size="md" defaultChecked aria-label="Medium" />
+        <Checkbox size="lg" defaultChecked aria-label="Large" />
+      </Row>
+
+      <Row label="Corner Radius" align="center">
+        <Checkbox radius="none" defaultChecked aria-label="None" />
+        <Checkbox radius="sm" defaultChecked aria-label="Small" />
+        <Checkbox radius="md" defaultChecked aria-label="Medium" />
+        <Checkbox radius="full" defaultChecked aria-label="Full" />
+      </Row>
+
+      <Row label="Interaction State" align="center">
+        <Checkbox disabled aria-label="Disabled" />
+        <Checkbox disabled defaultChecked aria-label="Disabled checked" />
+        <Checkbox disabled indeterminate aria-label="Disabled indeterminate" />
+      </Row>
+
+      <Row label="Validation State" align="center">
+        <Checkbox aria-invalid aria-label="Invalid" />
+        <Checkbox aria-invalid defaultChecked aria-label="Invalid checked" />
+      </Row>
+
+      <Row label="Field Association" align="center">
+        <div className="flex items-center gap-2">
+          <Checkbox id="terms" />
+          <Label htmlFor="terms">Accept terms and conditions</Label>
+        </div>
+      </Row>
+
+      <Row label="Composition">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <Checkbox id="all" indeterminate />
+            <Label htmlFor="all">Select all</Label>
+          </div>
+          <div className="flex flex-col gap-2 pl-6">
+            <div className="flex items-center gap-2">
+              <Checkbox id="one" defaultChecked />
+              <Label htmlFor="one" tone="muted">
+                First item
+              </Label>
+            </div>
+            <div className="flex items-center gap-2">
+              <Checkbox id="two" />
+              <Label htmlFor="two" tone="muted">
+                Second item
+              </Label>
+            </div>
+          </div>
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function TextareasSection() {
   return (
     <Section title="Textareas">
@@ -967,6 +1034,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <MediaSection />
       <InputsSection />
       <TextareasSection />
+      <CheckboxesSection />
       <LabelsSection />
       <SeparatorsSection />
       <SkeletonsSection />
