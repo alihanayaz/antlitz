@@ -3,6 +3,7 @@ import {
   Alert,
   Badge,
   Button,
+  Card,
   Heading,
   Icon,
   Image,
@@ -478,6 +479,123 @@ function AlertsSection() {
   );
 }
 
+function CardsSection() {
+  return (
+    <Section title="Cards">
+      <Row label="Variant">
+        <Card variant="solid" className="w-52">
+          Solid
+        </Card>
+        <Card variant="soft" className="w-52">
+          Soft
+        </Card>
+        <Card variant="outline" className="w-52">
+          Outline
+        </Card>
+        <Card variant="plain" className="w-52">
+          Plain
+        </Card>
+      </Row>
+
+      <Row label="Size">
+        <Card size="none" className="w-52">
+          None
+        </Card>
+        <Card size="sm" className="w-52">
+          Small
+        </Card>
+        <Card size="md" className="w-52">
+          Medium
+        </Card>
+        <Card size="lg" className="w-52">
+          Large
+        </Card>
+      </Row>
+
+      <Row label="Corner Radius">
+        <Card radius="none" className="w-40">
+          None
+        </Card>
+        <Card radius="sm" className="w-40">
+          Small
+        </Card>
+        <Card radius="md" className="w-40">
+          Medium
+        </Card>
+        <Card radius="lg" className="w-40">
+          Large
+        </Card>
+      </Row>
+
+      <Row label="Semantic Tone">
+        <Card tone="base" className="w-40">
+          Base
+        </Card>
+        <Card tone="muted" className="w-40">
+          Muted
+        </Card>
+        <Card tone="subtle" className="w-40">
+          Subtle
+        </Card>
+      </Row>
+
+      <Row label="Interactive">
+        <Card interactive variant="outline" className="w-52">
+          Outline
+        </Card>
+        <Card interactive variant="soft" className="w-52">
+          Soft
+        </Card>
+        <Card interactive variant="solid" className="w-52">
+          Solid
+        </Card>
+      </Row>
+
+      <Row label="Composition">
+        <Card radius="sm" size="none" className="w-64">
+          <Skeleton className="h-32 rounded-none" />
+          <div className="flex flex-col gap-2 p-4">
+            <Heading as="h3" size="xs">
+              A bounded surface
+            </Heading>
+            <Text size="sm" tone="muted">
+              Cards compose with the other atoms rather than shipping their own
+              header and footer parts.
+            </Text>
+            <div className="flex gap-2 pt-1">
+              <Badge variant="soft" radius="full">
+                Draft
+              </Badge>
+              <Badge variant="outline" radius="full">
+                2 min
+              </Badge>
+            </div>
+          </div>
+        </Card>
+      </Row>
+
+      <Row label="Polymorphism">
+        <Card interactive asChild className="w-64">
+          <Link href="/playground" variant="plain">
+            <Heading as="h3" size="xs">
+              Rendered as an anchor
+            </Heading>
+            <Text size="sm" tone="muted">
+              The whole card becomes the link target.
+            </Text>
+          </Link>
+        </Card>
+      </Row>
+
+      <Text size="sm" tone="subtle" className="max-w-prose">
+        Cards are inert by default;{" "}
+        <code className="font-mono">interactive</code> adds the pointer cursor
+        and a hover fill matched to the variant.
+      </Text>
+    </Section>
+  );
+}
+
 function LinksSection() {
   return (
     <Section title="Links">
@@ -671,6 +789,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <ButtonsSection />
       <BadgesSection />
       <AlertsSection />
+      <CardsSection />
       <LinksSection />
       <IconsSection />
       <MediaSection />
