@@ -11,6 +11,7 @@ import {
   Input,
   Label,
   Link,
+  Radio,
   Separator,
   Skeleton,
   Spinner,
@@ -857,6 +858,62 @@ function CheckboxesSection() {
   );
 }
 
+function RadiosSection() {
+  return (
+    <Section title="Radios">
+      <Row label="Selection State" align="center">
+        <Radio name="state" aria-label="Unselected" />
+        <Radio name="state" defaultChecked aria-label="Selected" />
+      </Row>
+
+      <Row label="Size" align="center">
+        <Radio size="sm" defaultChecked aria-label="Small" readOnly />
+        <Radio size="md" defaultChecked aria-label="Medium" readOnly />
+        <Radio size="lg" defaultChecked aria-label="Large" readOnly />
+      </Row>
+
+      <Row label="Corner Radius" align="center">
+        <Radio radius="full" defaultChecked aria-label="Full" readOnly />
+        <Radio radius="md" defaultChecked aria-label="Medium" readOnly />
+        <Radio radius="none" defaultChecked aria-label="None" readOnly />
+      </Row>
+
+      <Row label="Interaction State" align="center">
+        <Radio disabled aria-label="Disabled" />
+        <Radio disabled defaultChecked aria-label="Disabled selected" readOnly />
+      </Row>
+
+      <Row label="Validation State" align="center">
+        <Radio aria-invalid aria-label="Invalid" />
+        <Radio aria-invalid defaultChecked aria-label="Invalid selected" readOnly />
+      </Row>
+
+      <Row label="Composition">
+        <fieldset className="flex flex-col gap-2">
+          <Text asChild size="sm" weight="medium">
+            <legend className="mb-1">Delivery speed</legend>
+          </Text>
+          {[
+            ["standard", "Standard", "Arrives in 5–7 days"],
+            ["express", "Express", "Arrives in 2 days"],
+            ["overnight", "Overnight", "Arrives tomorrow"],
+          ].map(([id, title, hint], index) => (
+            <div key={id} className="flex items-center gap-2">
+              <Radio id={id} name="speed" defaultChecked={index === 0} />
+              <Label htmlFor={id}>
+                {title}
+                <Text as="span" size="xs" tone="subtle">
+                  {hint}
+                </Text>
+              </Label>
+            </div>
+          ))}
+        </fieldset>
+      </Row>
+    </Section>
+  );
+}
+
 function TextareasSection() {
   return (
     <Section title="Textareas">
@@ -1035,6 +1092,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <InputsSection />
       <TextareasSection />
       <CheckboxesSection />
+      <RadiosSection />
       <LabelsSection />
       <SeparatorsSection />
       <SkeletonsSection />
