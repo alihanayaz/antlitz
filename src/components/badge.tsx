@@ -5,7 +5,7 @@ import { cn } from "@/lib";
 
 const badgeVariants = cva(
   [
-    "inline-flex w-fit shrink-0 items-center justify-center gap-1 text-xs font-medium whitespace-nowrap select-none",
+    "inline-flex w-fit shrink-0 items-center justify-center gap-1 border border-transparent text-xs font-medium whitespace-nowrap select-none",
     "transition-colors",
     "[&_svg]:pointer-events-none [&_svg]:shrink-0",
   ],
@@ -14,7 +14,7 @@ const badgeVariants = cva(
       variant: {
         solid: "bg-primary text-primary-foreground anchor:hover:bg-primary-hover",
         soft: "bg-muted anchor:hover:bg-muted-hover",
-        outline: "border-border border anchor:hover:bg-muted-subtle",
+        outline: "border-border anchor:hover:bg-muted-subtle",
         danger:
           "bg-danger-soft text-danger-soft-foreground anchor:hover:bg-danger-soft-hover",
         success:

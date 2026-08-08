@@ -4,13 +4,16 @@ import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
 
 const cardVariants = cva(
-  ["group relative flex flex-col overflow-hidden", "transition-colors"],
+  [
+    "group relative flex flex-col overflow-hidden border border-transparent",
+    "transition-colors",
+  ],
   {
     variants: {
       variant: {
         solid: "bg-primary text-primary-foreground",
         soft: "bg-muted",
-        outline: "border-border border",
+        outline: "border-border",
         plain: "bg-transparent",
       },
       size: {

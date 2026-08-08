@@ -5,7 +5,7 @@ import { cn } from "@/lib";
 
 const alertVariants = cva(
   [
-    "relative flex w-full items-start text-sm leading-relaxed",
+    "relative flex w-full items-start border border-transparent text-sm leading-relaxed",
     "[&>svg]:h-[1lh]",
     "[&_svg]:shrink-0",
   ],
@@ -14,7 +14,7 @@ const alertVariants = cva(
       variant: {
         solid: "bg-primary text-primary-foreground",
         soft: "bg-muted",
-        outline: "border-border border",
+        outline: "border-border",
         danger: "bg-danger-soft text-danger-soft-foreground",
         success: "bg-success-soft text-success-soft-foreground",
         warning: "bg-warning-soft text-warning-soft-foreground",

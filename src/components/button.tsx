@@ -6,7 +6,7 @@ import { Spinner } from "./spinner";
 
 const buttonVariants = cva(
   [
-    "inline-flex items-center justify-center gap-2 text-sm font-medium whitespace-nowrap select-none",
+    "inline-flex items-center justify-center gap-2 border border-transparent text-sm font-medium whitespace-nowrap select-none",
     "transition-colors",
     "disabled:pointer-events-none disabled:opacity-50",
     "aria-disabled:pointer-events-none aria-disabled:opacity-50",
@@ -17,7 +17,7 @@ const buttonVariants = cva(
       variant: {
         solid: "bg-primary text-primary-foreground hover:bg-primary-hover",
         soft: "bg-muted hover:bg-muted-hover",
-        outline: "border border-border hover:bg-muted-subtle",
+        outline: "border-border hover:bg-muted-subtle",
         ghost: "hover:bg-muted bg-transparent",
         danger: "bg-danger text-danger-foreground hover:bg-danger-hover",
         "danger-soft":
