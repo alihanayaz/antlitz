@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { cn } from "@/lib";
+import { cn, setRef } from "@/lib";
 
 export interface ImageProps extends Omit<
   React.ImgHTMLAttributes<HTMLImageElement>,
@@ -44,9 +44,7 @@ export function Image({
   const assignRef = React.useCallback(
     (node: HTMLImageElement | null) => {
       if (node) cachedAtMount.current = node.complete;
-      if (typeof ref === "function") ref(node);
-      else if (ref)
-        (ref as React.RefObject<HTMLImageElement | null>).current = node;
+      setRef(ref, node);
     },
     [ref],
   );
