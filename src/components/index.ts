@@ -12,3 +12,4 @@ export * from "./separator";
 export * from "./skeleton";
 export * from "./spinner";
 export * from "./text";
+export * from "./textarea";
