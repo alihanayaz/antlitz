@@ -8,6 +8,7 @@ import {
   Icon,
   Image,
   Input,
+  Label,
   Link,
   Separator,
   Skeleton,
@@ -788,6 +789,56 @@ function InputsSection() {
   );
 }
 
+function LabelsSection() {
+  return (
+    <Section title="Labels">
+      <Row label="Field Association">
+        <div className="flex w-full max-w-xs flex-col gap-2">
+          <Label htmlFor="email">Email</Label>
+          <Input id="email" type="email" placeholder="you@example.com" />
+        </div>
+      </Row>
+
+      <Row label="Semantic Tone">
+        <div className="flex flex-col gap-3">
+          <Label>Base</Label>
+          <Label tone="muted">Muted</Label>
+          <Label tone="subtle">Subtle</Label>
+        </div>
+      </Row>
+
+      <Row label="Composition">
+        <div className="flex w-full max-w-xs flex-col gap-2">
+          <Label htmlFor="api-key">
+            API key
+            <Badge size="sm" variant="soft" radius="full">
+              Required
+            </Badge>
+          </Label>
+          <Input id="api-key" placeholder="key-…" />
+        </div>
+      </Row>
+
+      <Row label="Group Disabled State">
+        <div
+          className="group flex w-full max-w-xs flex-col gap-2"
+          data-disabled="true"
+        >
+          <Label htmlFor="locked">Locked</Label>
+          <Input id="locked" disabled defaultValue="Not editable" />
+        </div>
+      </Row>
+
+      <Row label="Peer Disabled State" align="center">
+        <div className="flex items-center gap-2">
+          <input id="peer-demo" type="checkbox" disabled className="peer" />
+          <Label htmlFor="peer-demo">Disabled checkbox label</Label>
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function SeparatorsSection() {
   return (
     <Section title="Separators">
@@ -856,6 +907,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <IconsSection />
       <MediaSection />
       <InputsSection />
+      <LabelsSection />
       <SeparatorsSection />
       <SkeletonsSection />
     </div>
