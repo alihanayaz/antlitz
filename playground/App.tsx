@@ -14,6 +14,7 @@ import {
   Skeleton,
   Spinner,
   Text,
+  Textarea,
 } from "antlitz";
 
 function Mark(props: SVGProps<SVGSVGElement>) {
@@ -789,6 +790,64 @@ function InputsSection() {
   );
 }
 
+function TextareasSection() {
+  return (
+    <Section title="Textareas">
+      <Row label="Variant">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Textarea placeholder="Outline" />
+          <Textarea variant="soft" placeholder="Soft" />
+          <Textarea variant="plain" placeholder="Plain" />
+        </div>
+      </Row>
+
+      <Row label="Size">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Textarea size="sm" placeholder="Small" />
+          <Textarea size="md" placeholder="Medium" />
+          <Textarea size="lg" placeholder="Large" />
+        </div>
+      </Row>
+
+      <Row label="Corner Radius">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Textarea radius="none" placeholder="None" />
+          <Textarea radius="md" placeholder="Medium" />
+          <Textarea radius="lg" placeholder="Large" />
+        </div>
+      </Row>
+
+      <Row label="Interaction State">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Textarea aria-invalid defaultValue="Invalid" />
+          <Textarea disabled placeholder="Disabled" />
+          <Textarea readOnly defaultValue="Read-only" />
+        </div>
+      </Row>
+
+      <Row label="Content Sizing">
+        <div className="flex w-full max-w-xs flex-col gap-2">
+          <Label htmlFor="bio">Bio</Label>
+          <Textarea
+            id="bio"
+            defaultValue={"Type here and the box grows.\nNo rows attribute."}
+          />
+        </div>
+      </Row>
+
+      <Row label="Fixed Sizing">
+        <div className="w-full max-w-xs">
+          <Textarea
+            rows={2}
+            className="field-sizing-fixed resize-none"
+            defaultValue="Cannot be resized or auto-grown."
+          />
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function LabelsSection() {
   return (
     <Section title="Labels">
@@ -907,6 +966,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <IconsSection />
       <MediaSection />
       <InputsSection />
+      <TextareasSection />
       <LabelsSection />
       <SeparatorsSection />
       <SkeletonsSection />
