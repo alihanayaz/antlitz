@@ -12,6 +12,7 @@ import {
   Label,
   Link,
   Radio,
+  Select,
   Separator,
   Skeleton,
   Spinner,
@@ -858,6 +859,87 @@ function CheckboxesSection() {
   );
 }
 
+function SelectsSection() {
+  const cities = ["Berlin", "Istanbul", "Lisbon", "Tokyo"];
+
+  return (
+    <Section title="Selects">
+      <Row label="Variant">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          {(["outline", "soft", "plain"] as const).map((variant) => (
+            <Select key={variant} variant={variant} defaultValue="">
+              <option value="">{variant}</option>
+              {cities.map((city) => (
+                <option key={city}>{city}</option>
+              ))}
+            </Select>
+          ))}
+        </div>
+      </Row>
+
+      <Row label="Size">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          {(["sm", "md", "lg"] as const).map((size) => (
+            <Select key={size} size={size} defaultValue="Berlin">
+              {cities.map((city) => (
+                <option key={city}>{city}</option>
+              ))}
+            </Select>
+          ))}
+        </div>
+      </Row>
+
+      <Row label="Corner Radius">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          {(["none", "md", "lg"] as const).map((radius) => (
+            <Select key={radius} radius={radius} defaultValue="Berlin">
+              {cities.map((city) => (
+                <option key={city}>{city}</option>
+              ))}
+            </Select>
+          ))}
+        </div>
+      </Row>
+
+      <Row label="Interaction State">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Select aria-invalid defaultValue="Berlin">
+            {cities.map((city) => (
+              <option key={city}>{city}</option>
+            ))}
+          </Select>
+          <Select disabled defaultValue="Berlin">
+            {cities.map((city) => (
+              <option key={city}>{city}</option>
+            ))}
+          </Select>
+          <Select multiple defaultValue={["Berlin", "Tokyo"]}>
+            {cities.map((city) => (
+              <option key={city}>{city}</option>
+            ))}
+          </Select>
+        </div>
+      </Row>
+
+      <Row label="Composition">
+        <div className="flex w-full max-w-xs flex-col gap-2">
+          <Label htmlFor="timezone">Timezone</Label>
+          <Select id="timezone" defaultValue="Europe/Berlin">
+            <optgroup label="Europe">
+              <option>Europe/Berlin</option>
+              <option>Europe/Lisbon</option>
+            </optgroup>
+            <optgroup label="Asia">
+              <option>Asia/Istanbul</option>
+              <option>Asia/Tokyo</option>
+            </optgroup>
+          </Select>
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function RadiosSection() {
   return (
     <Section title="Radios">
@@ -880,12 +962,22 @@ function RadiosSection() {
 
       <Row label="Interaction State" align="center">
         <Radio disabled aria-label="Disabled" />
-        <Radio disabled defaultChecked aria-label="Disabled selected" readOnly />
+        <Radio
+          disabled
+          defaultChecked
+          aria-label="Disabled selected"
+          readOnly
+        />
       </Row>
 
       <Row label="Validation State" align="center">
         <Radio aria-invalid aria-label="Invalid" />
-        <Radio aria-invalid defaultChecked aria-label="Invalid selected" readOnly />
+        <Radio
+          aria-invalid
+          defaultChecked
+          aria-label="Invalid selected"
+          readOnly
+        />
       </Row>
 
       <Row label="Composition">
@@ -1093,6 +1185,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <TextareasSection />
       <CheckboxesSection />
       <RadiosSection />
+      <SelectsSection />
       <LabelsSection />
       <SeparatorsSection />
       <SkeletonsSection />
