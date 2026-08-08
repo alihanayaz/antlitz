@@ -12,9 +12,9 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        solid: "bg-primary text-primary-foreground anchor:hover:bg-primary/90",
+        solid: "bg-primary text-primary-foreground anchor:hover:bg-primary-hover",
         soft: "bg-muted anchor:hover:bg-muted-hover",
-        outline: "border-border border anchor:hover:bg-muted",
+        outline: "border-border border anchor:hover:bg-muted-subtle",
         danger:
           "bg-danger-soft text-danger-soft-foreground anchor:hover:bg-danger-soft-hover",
         success:
