@@ -6,6 +6,7 @@ export * from "./heading";
 export * from "./icon";
 export * from "./image";
 export * from "./input";
+export * from "./label";
 export * from "./link";
 export * from "./separator";
 export * from "./skeleton";
