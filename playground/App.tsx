@@ -7,6 +7,7 @@ import {
   Heading,
   Icon,
   Image,
+  Input,
   Link,
   Separator,
   Skeleton,
@@ -726,6 +727,67 @@ function SkeletonsSection() {
   );
 }
 
+function InputsSection() {
+  return (
+    <Section title="Inputs">
+      <Row label="Variant">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Input placeholder="Outline" />
+          <Input variant="soft" placeholder="Soft" />
+          <Input variant="plain" placeholder="Plain" />
+        </div>
+      </Row>
+
+      <Row label="Size">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Input size="sm" placeholder="Small" />
+          <Input size="md" placeholder="Medium" />
+          <Input size="lg" placeholder="Large" />
+        </div>
+      </Row>
+
+      <Row label="Corner Radius">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Input radius="none" placeholder="None" />
+          <Input radius="md" placeholder="Medium" />
+          <Input radius="full" placeholder="Full" />
+        </div>
+      </Row>
+
+      <Row label="Validation State">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Input aria-invalid defaultValue="Outline" />
+          <Input variant="soft" aria-invalid defaultValue="Soft" />
+          <Input variant="plain" aria-invalid defaultValue="Plain" />
+        </div>
+      </Row>
+
+      <Row label="Interaction State">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Input disabled placeholder="Disabled" />
+          <Input readOnly defaultValue="Read-only" />
+          <Input variant="soft" disabled defaultValue="Disabled" />
+        </div>
+      </Row>
+
+      <Row label="Input Type">
+        <div className="grid w-full max-w-2xl items-start gap-3 md:grid-cols-3">
+          <Input type="email" placeholder="you@example.com" />
+          <Input type="password" defaultValue="password" />
+          <Input type="file" />
+        </div>
+      </Row>
+
+      <Row label="Composition">
+        <div className="flex w-full max-w-md items-start gap-2">
+          <Input type="search" placeholder="Search" />
+          <Button>Search</Button>
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function SeparatorsSection() {
   return (
     <Section title="Separators">
@@ -793,6 +855,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <LinksSection />
       <IconsSection />
       <MediaSection />
+      <InputsSection />
       <SeparatorsSection />
       <SkeletonsSection />
     </div>
