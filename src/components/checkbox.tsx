@@ -4,16 +4,14 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn, setRef } from "@/lib";
 import { Icon } from "./icon";
+import { toggleBase, toggleWrapper, type ToggleInputProps } from "./toggle";
 
 const checkboxVariants = cva(
   [
-    "peer shrink-0 appearance-none border border-border bg-transparent",
-    "transition-colors",
-    "checked:border-primary checked:bg-primary",
+    ...toggleBase,
+    "checked:bg-primary",
     "indeterminate:border-primary indeterminate:bg-primary",
-    "aria-invalid:border-danger aria-invalid:bg-danger-soft aria-invalid:outline-danger",
     "aria-invalid:checked:bg-danger aria-invalid:indeterminate:bg-danger",
-    "disabled:cursor-not-allowed",
   ],
   {
     variants: {
@@ -43,10 +41,7 @@ const indicator = [
   "transition-opacity opacity-0 peer-checked:opacity-100 peer-indeterminate:opacity-100",
 ].join(" ");
 
-export type CheckboxProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  "size" | "type"
-> &
+export type CheckboxProps = ToggleInputProps &
   VariantProps<typeof checkboxVariants> & {
     indeterminate?: boolean;
     ref?: React.Ref<HTMLInputElement>;
@@ -69,7 +64,7 @@ export function Checkbox({
   );
 
   return (
-    <span className="relative inline-flex has-disabled:opacity-50">
+    <span className={toggleWrapper}>
       <input
         ref={assignRef}
         type="checkbox"
