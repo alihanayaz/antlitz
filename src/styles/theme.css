@@ -12,6 +12,7 @@
   --foreground: oklch(14.5% 0 0); /* neutral-950 */
   --foreground-muted: oklch(37.1% 0 0); /* neutral-700 */
   --foreground-subtle: oklch(43.9% 0 0); /* neutral-600 */
+  --foreground-danger: oklch(44.4% 0.177 26.899); /* red-800 */
 
   --primary: oklch(14.5% 0 0); /* neutral-950 */
   --primary-hover: oklch(26.9% 0 0); /* neutral-800 */
@@ -50,6 +51,7 @@
   --foreground: oklch(98.5% 0 0); /* neutral-50 */
   --foreground-muted: oklch(87% 0 0); /* neutral-300 */
   --foreground-subtle: oklch(70.8% 0 0); /* neutral-400 */
+  --foreground-danger: oklch(80.8% 0.114 19.571); /* red-300 */
 
   --primary: oklch(98.5% 0 0); /* neutral-50 */
   --primary-hover: oklch(87% 0 0); /* neutral-300 */
@@ -84,6 +86,7 @@
   --color-foreground: var(--foreground);
   --color-foreground-muted: var(--foreground-muted);
   --color-foreground-subtle: var(--foreground-subtle);
+  --color-foreground-danger: var(--foreground-danger);
 
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
