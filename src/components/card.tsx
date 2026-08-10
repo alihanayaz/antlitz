@@ -4,16 +4,13 @@ import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
 
 const cardVariants = cva(
-  [
-    "group relative flex flex-col overflow-hidden border border-transparent",
-    "transition-colors",
-  ],
+  ["group relative flex flex-col overflow-hidden", "transition-colors"],
   {
     variants: {
       variant: {
         solid: "bg-primary text-primary-foreground",
         soft: "bg-muted",
-        outline: "border-border",
+        outline: "border-border border",
         plain: "bg-transparent",
       },
       size: {
@@ -48,10 +45,22 @@ const cardVariants = cva(
     },
     compoundVariants: [
       { variant: "solid", className: "text-primary-foreground" },
-      { variant: "solid", interactive: true, className: "hover:bg-primary-hover" },
+      {
+        variant: "solid",
+        interactive: true,
+        className: "hover:bg-primary-hover",
+      },
       { variant: "soft", interactive: true, className: "hover:bg-muted-hover" },
-      { variant: "outline", interactive: true, className: "hover:bg-muted-subtle" },
-      { variant: "plain", interactive: true, className: "hover:bg-muted-subtle" },
+      {
+        variant: "outline",
+        interactive: true,
+        className: "hover:bg-muted-subtle",
+      },
+      {
+        variant: "plain",
+        interactive: true,
+        className: "hover:bg-muted-subtle",
+      },
     ],
   },
 );
