@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { ReactNode, SVGProps } from "react";
 import {
   Alert,
@@ -5,6 +6,7 @@ import {
   Button,
   Card,
   Checkbox,
+  Field,
   Heading,
   Icon,
   Image,
@@ -859,6 +861,98 @@ function CheckboxesSection() {
   );
 }
 
+function AcceptTermsField() {
+  const [accepted, setAccepted] = useState(false);
+
+  return (
+    <Field
+      orientation="horizontal"
+      label="Accept terms and conditions"
+      error={accepted ? undefined : "You must accept to continue."}
+    >
+      <Checkbox
+        required
+        checked={accepted}
+        onChange={(event) => setAccepted(event.target.checked)}
+      />
+    </Field>
+  );
+}
+
+function FieldsSection() {
+  return (
+    <Section title="Fields">
+      <Row label="Composition">
+        <div className="flex w-full max-w-xs flex-col gap-6">
+          <Field label="Email">
+            <Input type="email" placeholder="you@example.com" />
+          </Field>
+
+          <Field
+            label="Display name"
+            description="Shown next to your comments."
+          >
+            <Input defaultValue="alihan" />
+          </Field>
+        </div>
+      </Row>
+
+      <Row label="Validation State">
+        <div className="flex w-full max-w-xs flex-col gap-6">
+          <Field label="Email" error="Enter a valid email address.">
+            <Input type="email" defaultValue="not-an-email" />
+          </Field>
+
+          <Field
+            label="Bio"
+            description="A short introduction."
+            error="Must be under 200 characters."
+          >
+            <Textarea defaultValue="…" />
+          </Field>
+        </div>
+      </Row>
+
+      <Row label="Required Marker">
+        <div className="flex w-full max-w-xs flex-col gap-6">
+          <Field label="Full name" description="As it appears on your ID.">
+            <Input required defaultValue="Alihan" />
+          </Field>
+
+          <Field label="Nickname" description="Optional.">
+            <Input />
+          </Field>
+
+          <AcceptTermsField />
+        </div>
+      </Row>
+
+      <Row label="Control Type">
+        <div className="flex w-full max-w-xs flex-col gap-6">
+          <Field label="Timezone" description="Used for scheduling.">
+            <Select defaultValue="Europe/Berlin">
+              <option>Europe/Berlin</option>
+              <option>Asia/Tokyo</option>
+            </Select>
+          </Field>
+
+          <Field
+            orientation="horizontal"
+            label="Accept terms and conditions"
+            error="You must accept to continue."
+          >
+            <Checkbox />
+          </Field>
+
+          <Field orientation="horizontal" label="Subscribe to updates">
+            <Checkbox defaultChecked />
+          </Field>
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function SelectsSection() {
   const cities = ["Berlin", "Istanbul", "Lisbon", "Tokyo"];
 
@@ -1186,6 +1280,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <CheckboxesSection />
       <RadiosSection />
       <SelectsSection />
+      <FieldsSection />
       <LabelsSection />
       <SeparatorsSection />
       <SkeletonsSection />

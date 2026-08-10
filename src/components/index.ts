@@ -3,6 +3,7 @@ export * from "./badge";
 export * from "./button";
 export * from "./card";
 export * from "./checkbox";
+export * from "./field";
 export * from "./heading";
 export * from "./icon";
 export * from "./image";
