@@ -18,6 +18,7 @@ import {
   Separator,
   Skeleton,
   Spinner,
+  Switch,
   Text,
   Textarea,
 } from "antlitz";
@@ -1034,6 +1035,52 @@ function SelectsSection() {
   );
 }
 
+function SwitchesSection() {
+  return (
+    <Section title="Switches">
+      <Row label="Selection State" align="center">
+        <Switch aria-label="Off" />
+        <Switch defaultChecked aria-label="On" />
+      </Row>
+
+      <Row label="Size" align="center">
+        <Switch size="sm" defaultChecked aria-label="Small" readOnly />
+        <Switch size="md" defaultChecked aria-label="Medium" readOnly />
+        <Switch size="lg" defaultChecked aria-label="Large" readOnly />
+      </Row>
+
+      <Row label="Interaction State" align="center">
+        <Switch disabled aria-label="Disabled" />
+        <Switch disabled defaultChecked aria-label="Disabled on" readOnly />
+      </Row>
+
+      <Row label="Validation State" align="center">
+        <Switch aria-invalid aria-label="Invalid" />
+        <Switch aria-invalid defaultChecked aria-label="Invalid on" readOnly />
+      </Row>
+
+      <Row label="Field Association" align="center">
+        <div className="flex items-center gap-2">
+          <Switch id="notifications" defaultChecked />
+          <Label htmlFor="notifications">Email notifications</Label>
+        </div>
+      </Row>
+
+      <Row label="Composition">
+        <div className="flex w-full max-w-xs flex-col gap-4">
+          <Field
+            orientation="horizontal"
+            label="Public profile"
+            description="Anyone can see your activity."
+          >
+            <Switch />
+          </Field>
+        </div>
+      </Row>
+    </Section>
+  );
+}
+
 function RadiosSection() {
   return (
     <Section title="Radios">
@@ -1279,6 +1326,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <TextareasSection />
       <CheckboxesSection />
       <RadiosSection />
+      <SwitchesSection />
       <SelectsSection />
       <FieldsSection />
       <LabelsSection />
