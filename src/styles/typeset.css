@@ -1,0 +1,197 @@
+@layer components {
+  .typeset {
+    --typeset-size: var(--text-base);
+    --typeset-leading: var(--leading-relaxed);
+    --typeset-flow: 1.5em;
+
+    font-size: var(--typeset-size);
+    line-height: var(--typeset-leading);
+
+    @apply text-foreground text-pretty;
+
+    & > :where(* + *),
+    & :where(blockquote, td, th) > :where(* + *) {
+      margin-block-start: var(--typeset-flow);
+    }
+
+    & :where(li) > :where(* + *) {
+      margin-block-start: calc(var(--typeset-flow) / 2);
+    }
+
+    & > :where(h1, h2, h3, h4, h5, h6) + * {
+      margin-block-start: calc(var(--typeset-flow) / 2);
+    }
+
+    & :where(h1, h2, h3, h4, h5, h6) {
+      @apply font-semibold tracking-tight text-balance;
+    }
+
+    & :where(h1) {
+      @apply text-3xl lg:text-4xl;
+    }
+
+    & :where(h2) {
+      @apply text-2xl lg:text-3xl;
+    }
+
+    & :where(h3) {
+      @apply text-xl lg:text-2xl;
+    }
+
+    & :where(h4) {
+      @apply text-lg lg:text-xl;
+    }
+
+    & :where(h5) {
+      @apply text-base lg:text-lg;
+    }
+
+    & :where(h6) {
+      @apply text-sm lg:text-base;
+    }
+
+    & :where(a) {
+      @apply link;
+    }
+
+    & :where(strong, b) {
+      @apply font-semibold;
+    }
+
+    & :where(del) {
+      @apply text-foreground-subtle line-through;
+    }
+
+    & :where(mark) {
+      @apply bg-warning-soft text-warning-soft-foreground px-1;
+    }
+
+    & :where(ul, ol) {
+      padding-inline-start: 1.5em;
+    }
+
+    & :where(ul) {
+      @apply list-disc;
+    }
+
+    & :where(ol) {
+      @apply list-decimal;
+    }
+
+    & :where(li)::marker {
+      @apply text-foreground-subtle;
+    }
+
+    & :where(li + li),
+    & :where(li > ul, li > ol) {
+      margin-block-start: calc(var(--typeset-flow) / 4);
+    }
+
+    & :where(li:has(> p) + li) {
+      margin-block-start: var(--typeset-flow);
+    }
+
+    & :where(li:has(> input[type="checkbox"], > p > input[type="checkbox"])) {
+      @apply list-none;
+    }
+
+    & :where(li input[type="checkbox"]) {
+      @apply border-border relative me-2 size-4 shrink-0 appearance-none border align-middle;
+    }
+
+    & :where(li input[type="checkbox"]:checked) {
+      @apply border-primary bg-primary;
+    }
+
+    & :where(li input[type="checkbox"]:checked)::before {
+      @apply bg-primary-foreground absolute -inset-px;
+
+      content: "";
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")
+        center / 65% no-repeat;
+    }
+
+    @media (forced-colors: active) {
+      & :where(li input[type="checkbox"]) {
+        appearance: auto;
+      }
+
+      & :where(li input[type="checkbox"]:checked)::before {
+        content: none;
+      }
+    }
+
+    & :where(blockquote) {
+      @apply border-border border-s-2;
+
+      padding-inline-start: 1em;
+    }
+
+    & :where(code, kbd, pre, table, figcaption) {
+      font-size: 0.875em;
+    }
+
+    & :where(code) {
+      @apply bg-muted px-1.5 py-0.5 font-mono wrap-break-word;
+    }
+
+    & :where(kbd) {
+      @apply border-border bg-muted-subtle border px-1.5 py-0.5 font-mono;
+    }
+
+    & :where(pre) {
+      @apply border-border bg-muted-subtle overflow-x-auto border p-4 font-mono;
+    }
+
+    & :where(pre code) {
+      @apply bg-transparent p-0;
+
+      font-size: inherit;
+    }
+
+    & :where(hr) {
+      @apply border-border;
+
+      margin-block: calc(var(--typeset-flow) * 2);
+    }
+
+    & :where(figure) {
+      @apply flex flex-col;
+
+      gap: calc(var(--typeset-flow) / 3);
+    }
+
+    & :where(figure img, figure video) {
+      @apply w-full;
+    }
+
+    & :where(figcaption) {
+      @apply text-foreground-subtle;
+    }
+
+    & :where(table) {
+      @apply w-full;
+    }
+
+    & :where(caption) {
+      @apply text-foreground-subtle text-start;
+
+      padding-block-end: calc(var(--typeset-flow) / 3);
+    }
+
+    & :where(th, td) {
+      @apply border-border border-b px-3 py-2 text-start;
+    }
+
+    & :where(th) {
+      @apply font-medium;
+    }
+
+    & .not-typeset,
+    & .not-typeset *,
+    & [data-not-typeset],
+    & [data-not-typeset] * {
+      all: revert-layer;
+    }
+  }
+}

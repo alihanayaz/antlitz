@@ -28,6 +28,7 @@
       "import": "./dist/next/index.js"
     },
     "./theme.css": "./dist/theme.css",
+    "./typeset.css": "./dist/typeset.css",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -43,7 +44,7 @@
     "build:js": "babel src --out-dir dist --extensions \".ts,.tsx\" --ignore \"src/cli/**\" --config-file ./babel.config.build.json --source-maps",
     "build:types": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json --resolve-full-paths --resolve-full-extension .js",
     "build:cli": "esbuild src/cli/index.ts --bundle --minify --platform=node --format=esm --target=node20 --outfile=dist/cli/index.js && shx chmod +x dist/cli/index.js",
-    "build:css": "shx cp src/styles/theme.css dist/theme.css",
+    "build:css": "shx cp src/styles/theme.css src/styles/typeset.css dist/",
     "clean": "shx rm -rf dist",
     "typecheck": "tsc -p tsconfig.build.json --noEmit && tsc -p tsconfig.cli.json --noEmit",
     "lint": "eslint .",
