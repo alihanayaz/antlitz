@@ -1310,11 +1310,174 @@ function Masthead({ mode }: { mode: "light" | "dark" }) {
   );
 }
 
+function Prose({ children }: { children: ReactNode }) {
+  return <div className="typeset max-w-2xl">{children}</div>;
+}
+
+function TypesetSection() {
+  return (
+    <Section title="Typeset">
+      <Row label="Document">
+        <Prose>
+          <h1>Setting long-form content</h1>
+          <p>
+            Typeset styles content rendered from data — markdown, MDX, a CMS
+            rich-text field — where every node arrives as a plain element and
+            there is nothing to wrap in a component.
+          </p>
+          <h2>Rhythm</h2>
+          <p>
+            Space between blocks scales with each block&rsquo;s own size, so a
+            heading opens more room above itself than a paragraph does.
+          </p>
+          <blockquote>
+            <p>A quotation, set off by a rule on the inline start edge.</p>
+            <p>Its second paragraph, spaced like any other pair of blocks.</p>
+          </blockquote>
+          <pre>
+            <code>
+              {
+                "export function greet(name: string) {\n  return name.toUpperCase();\n}"
+              }
+            </code>
+          </pre>
+          <hr />
+          <h3>Tokens</h3>
+          <table>
+            <caption>The three variables that set the rhythm.</caption>
+            <thead>
+              <tr>
+                <th>Variable</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>--typeset-size</td>
+                <td>Base text size</td>
+              </tr>
+              <tr>
+                <td>--typeset-leading</td>
+                <td>Line height</td>
+              </tr>
+              <tr>
+                <td>--typeset-flow</td>
+                <td>Space between blocks</td>
+              </tr>
+            </tbody>
+          </table>
+        </Prose>
+      </Row>
+
+      <Row label="Inline">
+        <Prose>
+          <p>
+            <strong>Strong emphasis</strong>, an{" "}
+            <a href="#typeset">inline link</a>, <code>inline code</code>,{" "}
+            <del>struck through</del>, <mark>highlighted</mark>, a footnote
+            marker<sup>1</sup>, and a <kbd>⌘K</kbd> key.
+          </p>
+          <p>
+            A long unbroken token wraps rather than overflowing:{" "}
+            <code>
+              sha256-3f0a1c9b7e2d4a6f8c5b0e1d2a3f4c5b6e7d8a9f0c1b2e3d4a5f
+            </code>
+          </p>
+        </Prose>
+      </Row>
+
+      <Row label="List">
+        <Prose>
+          <ul>
+            <li>A tight item</li>
+            <li>
+              An item with a nested list
+              <ul>
+                <li>One level down</li>
+              </ul>
+            </li>
+          </ul>
+          <ol>
+            <li>First</li>
+            <li>Second</li>
+          </ol>
+          <ul>
+            <li>
+              <p>A loose item, whose content markdown wraps in a paragraph.</p>
+              <p>Its second paragraph.</p>
+            </li>
+            <li>
+              <p>A second loose item, spaced to match.</p>
+            </li>
+          </ul>
+        </Prose>
+      </Row>
+
+      <Row label="Task List">
+        <Prose>
+          <ul>
+            <li>
+              <input type="checkbox" defaultChecked disabled /> A completed task
+            </li>
+            <li>
+              <input type="checkbox" disabled /> An outstanding task
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <p>
+                <input type="checkbox" defaultChecked disabled /> The same in a
+                loose list
+              </p>
+            </li>
+            <li>
+              <p>
+                <input type="checkbox" disabled /> with the marker still
+                suppressed
+              </p>
+            </li>
+          </ul>
+        </Prose>
+      </Row>
+
+      <Row label="Media">
+        <Prose>
+          <figure>
+            <Image
+              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800"
+              alt="A forest canopy"
+            />
+            <figcaption>A figure image fills its column.</figcaption>
+          </figure>
+          <p>
+            A small image keeps its intrinsic size:{" "}
+            <img
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%23888'/%3E%3C/svg%3E"
+              alt=""
+            />
+          </p>
+        </Prose>
+      </Row>
+
+      <Row label="Opt Out">
+        <Prose>
+          <p>Styled by Typeset.</p>
+          <div className="not-typeset">
+            <p>Opted out, so components inside keep their own styling.</p>
+            <Button size="sm">Action</Button>
+          </div>
+        </Prose>
+      </Row>
+    </Section>
+  );
+}
+
 function Showcase({ mode }: { mode: "light" | "dark" }) {
   return (
     <div className="bg-background text-foreground flex min-h-dvh flex-col gap-12 p-8 lg:p-12">
       <Masthead mode={mode} />
       <TypographySection />
+      <TypesetSection />
       <ButtonsSection />
       <BadgesSection />
       <AlertsSection />
