@@ -7,6 +7,7 @@ import {
   Card,
   Checkbox,
   Field,
+  Fieldset,
   Heading,
   Icon,
   Image,
@@ -880,6 +881,87 @@ function AcceptTermsField() {
   );
 }
 
+function FieldsetsSection() {
+  return (
+    <Section title="Fieldsets">
+      <Row label="Radio Group">
+        <Fieldset legend="Notify me about" className="w-full max-w-xs">
+          <Field orientation="horizontal" label="All new messages">
+            <Radio name="notify" value="all" defaultChecked />
+          </Field>
+          <Field orientation="horizontal" label="Direct messages only">
+            <Radio name="notify" value="direct" />
+          </Field>
+          <Field orientation="horizontal" label="Nothing">
+            <Radio name="notify" value="none" />
+          </Field>
+        </Fieldset>
+      </Row>
+
+      <Row label="Orientation">
+        <Fieldset legend="Density" orientation="horizontal" className="w-full">
+          <Field orientation="horizontal" label="Compact">
+            <Radio name="density" value="compact" defaultChecked />
+          </Field>
+          <Field orientation="horizontal" label="Cosy">
+            <Radio name="density" value="cosy" />
+          </Field>
+          <Field orientation="horizontal" label="Roomy">
+            <Radio name="density" value="roomy" />
+          </Field>
+        </Fieldset>
+      </Row>
+
+      <Row label="Description">
+        <Fieldset
+          legend="Visibility"
+          required
+          description="Only affects new posts."
+          className="w-full max-w-xs"
+        >
+          <Field orientation="horizontal" label="Public">
+            <Radio name="visibility" value="public" defaultChecked />
+          </Field>
+          <Field orientation="horizontal" label="Private">
+            <Radio name="visibility" value="private" />
+          </Field>
+        </Fieldset>
+      </Row>
+
+      <Row label="Validation State">
+        <Fieldset
+          legend="Pick at least one"
+          error="Select a channel to continue."
+          className="w-full max-w-xs"
+        >
+          <Field orientation="horizontal" label="Email">
+            <Checkbox name="channel" value="email" aria-invalid />
+          </Field>
+          <Field orientation="horizontal" label="SMS">
+            <Checkbox name="channel" value="sms" aria-invalid />
+          </Field>
+        </Fieldset>
+      </Row>
+
+      <Row label="Interaction State">
+        <Fieldset
+          legend="Disabled group"
+          description="The fieldset disables every control inside it."
+          disabled
+          className="w-full max-w-xs"
+        >
+          <Field orientation="horizontal" label="One">
+            <Radio name="disabled-group" value="one" defaultChecked />
+          </Field>
+          <Field orientation="horizontal" label="Two">
+            <Radio name="disabled-group" value="two" />
+          </Field>
+        </Fieldset>
+      </Row>
+    </Section>
+  );
+}
+
 function FieldsSection() {
   return (
     <Section title="Fields">
@@ -1492,6 +1574,7 @@ function Showcase({ mode }: { mode: "light" | "dark" }) {
       <SwitchesSection />
       <SelectsSection />
       <FieldsSection />
+      <FieldsetsSection />
       <LabelsSection />
       <SeparatorsSection />
       <SkeletonsSection />

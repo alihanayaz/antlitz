@@ -1,11 +1,13 @@
 import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
 
 const labelVariants = cva(
   [
     "flex items-center gap-2 text-sm leading-none font-medium select-none",
     "peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
+    "group-has-disabled/field:cursor-not-allowed group-has-disabled/field:opacity-50",
     "group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50",
   ],
   {
@@ -24,11 +26,13 @@ const labelVariants = cva(
 
 export type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> &
   VariantProps<typeof labelVariants> & {
+    asChild?: boolean;
     required?: boolean;
     ref?: React.Ref<HTMLLabelElement>;
   };
 
 export function Label({
+  asChild = false,
   tone,
   required = false,
   ref,
@@ -36,18 +40,20 @@ export function Label({
   children,
   ...props
 }: LabelProps) {
+  const Comp = asChild ? Slot : "label";
+
   return (
-    <label
+    <Comp
       ref={ref}
       className={cn(labelVariants({ tone }), className)}
       {...props}
     >
-      {children}
+      <Slottable>{children}</Slottable>
       {required && (
         <span aria-hidden="true" className="text-foreground-danger -ml-1">
           *
         </span>
       )}
-    </label>
+    </Comp>
   );
 }
