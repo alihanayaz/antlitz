@@ -2,8 +2,8 @@
 
 import * as React from "react";
 import { cn } from "@/lib";
+import { FieldMessages, fieldDescribedBy } from "./field-messages";
 import { Label } from "./label";
-import { Text } from "./text";
 
 type ControlProps = {
   id?: string;
@@ -44,13 +44,13 @@ export function Field({
   const control = React.Children.only(children);
 
   const id = controlId ?? control.props.id ?? generatedId;
-  const descriptionId = description ? `${id}-description` : undefined;
-  const errorId = error ? `${id}-error` : undefined;
 
-  const describedBy =
-    [control.props["aria-describedby"], descriptionId, errorId]
-      .filter(Boolean)
-      .join(" ") || undefined;
+  const describedBy = fieldDescribedBy(
+    id,
+    description,
+    error,
+    control.props["aria-describedby"],
+  );
 
   const ariaRequired = control.props["aria-required"];
   const isRequired =
@@ -77,6 +77,7 @@ export function Field({
     <div
       ref={ref}
       className={cn(
+        "group/field",
         isHorizontal
           ? "grid grid-cols-[auto_1fr] items-center gap-2"
           : "flex flex-col gap-2",
@@ -95,21 +96,12 @@ export function Field({
           {controlElement}
         </>
       )}
-      {description && (
-        <Text
-          id={descriptionId}
-          size="xs"
-          tone="subtle"
-          className={asideColumn}
-        >
-          {description}
-        </Text>
-      )}
-      {error && (
-        <Text id={errorId} size="xs" tone="danger" className={asideColumn}>
-          {error}
-        </Text>
-      )}
+      <FieldMessages
+        id={id}
+        description={description}
+        error={error}
+        className={asideColumn}
+      />
     </div>
   );
 }
