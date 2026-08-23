@@ -2,6 +2,7 @@ import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
+import { tone } from "./variants";
 
 const headingVariants = cva("tracking-tight text-balance", {
   variants: {
@@ -18,11 +19,7 @@ const headingVariants = cva("tracking-tight text-balance", {
       bold: "font-bold",
       black: "font-black",
     },
-    tone: {
-      base: "text-foreground",
-      muted: "text-foreground-muted",
-      subtle: "text-foreground-subtle",
-    },
+    tone,
   },
   defaultVariants: {
     size: "md",

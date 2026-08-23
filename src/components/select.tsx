@@ -2,41 +2,28 @@ import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib";
 import { Icon } from "./icon";
+import { fieldBase, radius } from "./variants";
 
-const selectVariants = cva(
-  [
-    "w-full min-w-0 appearance-none border border-transparent text-base md:text-sm",
-    "transition-colors",
-    "disabled:cursor-not-allowed",
-    "aria-invalid:border-danger aria-invalid:outline-danger",
-  ],
-  {
-    variants: {
-      variant: {
-        outline: "border-border",
-        soft: "bg-muted",
-        plain: "bg-transparent",
-      },
-      size: {
-        sm: "py-0.5 pr-7 pl-2.5 md:py-1",
-        md: "py-1.5 pr-8 pl-3 md:py-2",
-        lg: "py-2.5 pr-9 pl-3.5 md:py-3",
-      },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        full: "rounded-full",
-      },
+const selectVariants = cva([...fieldBase, "appearance-none"], {
+  variants: {
+    variant: {
+      outline: "border-border",
+      soft: "bg-muted",
+      plain: "bg-transparent",
     },
-    defaultVariants: {
-      variant: "outline",
-      size: "md",
-      radius: "none",
+    size: {
+      sm: "py-0.5 pr-7 pl-2.5 md:py-1",
+      md: "py-1.5 pr-8 pl-3 md:py-2",
+      lg: "py-2.5 pr-9 pl-3.5 md:py-3",
     },
+    radius,
   },
-);
+  defaultVariants: {
+    variant: "outline",
+    size: "md",
+    radius: "none",
+  },
+});
 
 const chevronVariants = cva(
   "text-foreground-subtle pointer-events-none absolute top-1/2 -translate-y-1/2",

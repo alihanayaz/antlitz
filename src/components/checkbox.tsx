@@ -5,6 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn, setRef } from "@/lib";
 import { Icon } from "./icon";
 import { toggleBase, toggleWrapper, type ToggleInputProps } from "./toggle";
+import { radius } from "./variants";
 
 const checkboxVariants = cva(
   [
@@ -20,13 +21,7 @@ const checkboxVariants = cva(
         md: "size-4",
         lg: "size-5",
       },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        full: "rounded-full",
-      },
+      radius,
     },
     defaultVariants: {
       size: "md",

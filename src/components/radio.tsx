@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib";
 import { Icon } from "./icon";
 import { toggleBase, toggleWrapper, type ToggleInputProps } from "./toggle";
+import { radius } from "./variants";
 
 const radioVariants = cva(toggleBase, {
   variants: {
@@ -11,13 +12,7 @@ const radioVariants = cva(toggleBase, {
       md: "size-4",
       lg: "size-5",
     },
-    radius: {
-      none: "rounded-none",
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      full: "rounded-full",
-    },
+    radius,
   },
   defaultVariants: {
     size: "md",

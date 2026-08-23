@@ -2,6 +2,7 @@ import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
+import { tone } from "./variants";
 
 const labelVariants = cva(
   [
@@ -12,11 +13,7 @@ const labelVariants = cva(
   ],
   {
     variants: {
-      tone: {
-        base: "text-foreground",
-        muted: "text-foreground-muted",
-        subtle: "text-foreground-subtle",
-      },
+      tone,
     },
     defaultVariants: {
       tone: "base",

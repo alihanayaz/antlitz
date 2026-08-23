@@ -2,6 +2,7 @@ import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
+import { radius, tone } from "./variants";
 
 const badgeVariants = cva(
   [
@@ -12,7 +13,8 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        solid: "bg-primary text-primary-foreground anchor:hover:bg-primary-hover",
+        solid:
+          "bg-primary text-primary-foreground anchor:hover:bg-primary-hover",
         soft: "bg-muted anchor:hover:bg-muted-hover",
         outline: "border-border anchor:hover:bg-muted-subtle",
         danger:
@@ -29,18 +31,8 @@ const badgeVariants = cva(
         md: "px-2 py-0.5",
         lg: "px-2.5 py-1",
       },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        full: "rounded-full",
-      },
-      tone: {
-        base: "text-foreground",
-        muted: "text-foreground-muted",
-        subtle: "text-foreground-subtle",
-      },
+      radius,
+      tone,
     },
     defaultVariants: {
       variant: "solid",

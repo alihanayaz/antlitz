@@ -2,6 +2,7 @@ import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
+import { radius, tone } from "./variants";
 
 const cardVariants = cva(
   ["group relative flex flex-col overflow-hidden", "transition-colors"],
@@ -19,18 +20,8 @@ const cardVariants = cva(
         md: "p-6",
         lg: "p-8",
       },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        full: "rounded-full",
-      },
-      tone: {
-        base: "text-foreground",
-        muted: "text-foreground-muted",
-        subtle: "text-foreground-subtle",
-      },
+      radius,
+      tone,
       interactive: {
         true: "cursor-pointer",
         false: "",

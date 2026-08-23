@@ -3,6 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Slot, Slottable } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
 import { Spinner } from "./spinner";
+import { radius } from "./variants";
 
 const buttonVariants = cva(
   [
@@ -32,13 +33,7 @@ const buttonVariants = cva(
         lg: "px-8 py-2",
         icon: "aspect-square size-10",
       },
-      radius: {
-        none: "rounded-none",
-        sm: "rounded-sm",
-        md: "rounded-md",
-        lg: "rounded-lg",
-        full: "rounded-full",
-      },
+      radius,
       tone: {
         base: "text-foreground",
         muted: "text-foreground-muted hover:text-foreground",
