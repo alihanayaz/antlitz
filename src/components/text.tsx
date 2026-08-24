@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/lib";
 
-const textVariants = cva("leading-relaxed", {
+const textVariants = cva("", {
   variants: {
     size: {
       xs: "text-xs",
@@ -52,7 +52,11 @@ export function Text<T extends React.ElementType = "p">({
 
   return (
     <Comp
-      className={cn(textVariants({ size, weight, tone }), className)}
+      className={cn(
+        textVariants({ size, weight, tone }),
+        "leading-relaxed",
+        className,
+      )}
       {...props}
     />
   );
