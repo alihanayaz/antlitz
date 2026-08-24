@@ -1,0 +1,43 @@
+export const metadata = { title: "Text" };
+
+# Text
+
+Body copy. Polymorphic — renders a `p` by default, or any element through `as`.
+
+```tsx
+import { Text } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Text" />
+
+`as` accepts any element type, and the props type follows it: `as="time"`
+accepts `dateTime`, `as="label"` accepts `htmlFor`.
+
+## Sizes
+
+<Preview file="text" name="Sizes" layout="col" />
+
+## Weights
+
+<Preview file="text" name="Weights" layout="col" />
+
+## Tones
+
+<Preview file="text" name="Tones" layout="col" />
+
+`danger` exists for validation messages — it is the tone `Field` and `Fieldset`
+use for errors.
+
+## Polymorphism
+
+<Preview file="text" name="Polymorphism" />
+
+`as` changes the rendered element. `asChild` merges Text's styling onto a child
+you supply, which is right when the child carries its own props or behaviour.
+
+## Long-form content
+
+Text styles individual strings. For rendered markdown or CMS content — where
+every node arrives as a plain element — use the Typeset stylesheet instead.

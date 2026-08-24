@@ -1,0 +1,50 @@
+export const metadata = { title: "Field" };
+
+# Field
+
+Wires one control to its label, description and error message. It generates the
+ids and the `aria-describedby` that connect them, which is the part most easily
+got wrong by hand.
+
+```tsx
+import { Field } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Field" />
+
+Field takes exactly one child and clones it to add an `id`,
+`aria-describedby`, and `aria-invalid`. It reads `required` off that child, so
+the label's asterisk stays in step with what the browser enforces.
+
+The generated ids derive from the control's `id` if it has one, then
+`controlId`, then a generated fallback. Pass `controlId` when the id must be
+stable.
+
+## Usage
+
+<Preview file="field" name="Basic" layout="col" />
+
+## Validation
+
+<Preview file="field" name="Validation" layout="col" />
+
+Passing `error` sets `aria-invalid` on the control and appends the message's id
+to `aria-describedby`, so a screen reader announces the field as invalid and
+reads the reason. Any existing `aria-describedby` is preserved.
+
+## Required
+
+<Preview file="field" name="Required" layout="col" />
+
+## Orientation
+
+<Preview file="field" name="Orientation" layout="col" />
+
+`vertical` stacks the label above the control. `horizontal` places the control
+first and the label beside it, which is the correct order for checkboxes and
+switches — and there `label` becomes required, since a horizontal field with no
+label has nothing to sit beside.
+
+For several related controls sharing one label and one error, use `Fieldset`.

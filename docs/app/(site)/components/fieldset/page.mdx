@@ -1,0 +1,55 @@
+export const metadata = { title: "Fieldset" };
+
+# Fieldset
+
+Groups related controls under one legend. Renders a native `fieldset`, so
+`disabled` cascades to every control inside it without any JavaScript.
+
+```tsx
+import { Fieldset } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Fieldset" />
+
+The props mirror `Field` — `legend` where Field has `label`. `required` is
+presentational here: a `fieldset` has no required attribute, and nothing is
+propagated to the children.
+
+## Usage
+
+<Preview file="fieldset" name="Basic" />
+
+## Orientation
+
+<Preview file="fieldset" name="Orientation" />
+
+## Validation
+
+<Preview file="fieldset" name="Validation" />
+
+The error is wired to the fieldset through `aria-describedby`, so it is
+announced when focus enters the group.
+
+Fieldset does not set `aria-invalid` on individual controls — it never inspects
+its children, which may be nested arbitrarily deep. Set it per control, or let
+a form library do it.
+
+## Disabled
+
+<Preview file="fieldset" name="Disabled" />
+
+`disabled` disables every control inside natively. The legend and labels dim to
+match.
+
+## Radio groups
+
+Radios sharing a `name` already form a group with arrow-key navigation and
+single selection — that behaviour is native and needs no component. What a bare
+group lacks is a name and somewhere for an error to live, which is what the
+`legend` and `error` supply.
+
+There is no separate `RadioGroup` for that reason. `Fieldset` groups checkboxes
+and arbitrary fields equally well; a radio-specific component would only add
+`name` propagation, which would be wrong for the other cases.

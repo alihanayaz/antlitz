@@ -1,0 +1,53 @@
+export const metadata = { title: "Label" };
+
+# Label
+
+Names a control. Renders a native `label`, so clicking it focuses or toggles
+the control it points at.
+
+```tsx
+import { Label } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Label" />
+
+## Usage
+
+<Preview file="label" name="Basic" layout="col" />
+
+`htmlFor` must match the control's `id`. `Field` wires this for you — reach for
+`Label` directly only when composing a layout `Field` does not cover.
+
+## Tones
+
+<Preview file="label" name="Tones" layout="col" />
+
+## Required
+
+<Preview file="label" name="Required" layout="col" />
+
+The asterisk is presentational — set `required` on the control itself for the
+browser to enforce it.
+
+## Composition
+
+<Preview file="label" name="Composition" layout="col" />
+
+Label is a flex row with a gap, so badges and hints sit alongside the text
+without extra wrappers.
+
+`asChild` merges its styling onto a child instead of rendering a `label` —
+which is how `Fieldset` renders a `legend` matching every other label.
+
+## Disabled
+
+<Preview file="label" name="Disabled" layout="col" />
+
+A Label dims when the control inside its `Field` is disabled, including when a
+surrounding `Fieldset` disables the whole group.
+
+This works through `group-has-disabled/field`, which looks _downward_ for a
+disabled control. A sibling selector could not: the input is wrapped by
+Checkbox, Radio and Switch, and in a vertical `Field` the label comes first.

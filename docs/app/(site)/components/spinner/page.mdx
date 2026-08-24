@@ -1,0 +1,36 @@
+export const metadata = { title: "Spinner" };
+
+# Spinner
+
+An indeterminate loading indicator.
+
+```tsx
+import { Spinner } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Spinner" />
+
+Spinner is an `Icon`, so it takes the same props — `size` is a number in
+pixels, not a variant name.
+
+It carries `role="status"` and `aria-label="Loading"` by default. Override the
+label when something more specific helps: `aria-label="Uploading photo"`.
+
+## Sizes
+
+<Preview file="spinner" name="Sizes" />
+
+## In context
+
+<Preview file="spinner" name="InContext" />
+
+`Button` renders one for you when `loading` is set, so a spinner rarely needs
+placing by hand inside a button.
+
+## Reduced motion
+
+The spinner is deliberately **not** gated behind `motion-safe`. A frozen
+loading indicator conveys nothing, which is worse for the user it was meant to
+protect than a moving one.

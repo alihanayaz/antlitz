@@ -1,0 +1,51 @@
+export const metadata = { title: "Card" };
+
+# Card
+
+A container for related content.
+
+```tsx
+import { Card } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Card" />
+
+`size` controls padding rather than dimensions; `size="none"` removes it, which
+is what you want when the card holds a full-bleed image.
+
+## Variants
+
+<Preview file="card" name="Variants" />
+
+## Sizes
+
+<Preview file="card" name="Sizes" />
+
+## Radius
+
+<Preview file="card" name="Radius" />
+
+## Tones
+
+<Preview file="card" name="Tones" />
+
+## Interactive
+
+<Preview file="card" name="Interactive" />
+
+`interactive` adds hover and focus affordances for cards that behave as a
+single target. Pair it with `asChild` and a link so the whole card is one
+control, rather than nesting a link inside a clickable div.
+
+## Composition
+
+<Preview file="card" name="Composition" />
+
+Card is a flex column with `overflow-hidden`, so a rounded card clips its
+children. It sets no gap — spacing between children is the caller's decision.
+
+The border belongs to the `outline` variant rather than the base: a transparent
+border on every variant would inset content by 1px in variants that show no
+border, because normal-flow children lay out in the content box.

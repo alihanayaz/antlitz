@@ -1,0 +1,51 @@
+export const metadata = { title: "Input" };
+
+# Input
+
+A single-line text field. Renders a native `input`, so every type, validation
+attribute, and form behaviour comes from the platform.
+
+```tsx
+import { Input } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Input" />
+
+`size` is antlitz's own prop, not the native `size` attribute — the native one
+is removed from the type to avoid the collision.
+
+## Variants
+
+<Preview file="input" name="Variants" layout="grid" />
+
+## Sizes
+
+<Preview file="input" name="Sizes" layout="grid" />
+
+Every size holds the same height at both breakpoints. Mobile uses `text-base`
+to stop iOS zooming on focus and `text-sm` from `md` upwards, with padding
+adjusted so the box does not change height.
+
+## Radius
+
+<Preview file="input" name="Radius" layout="grid" />
+
+## States
+
+<Preview file="input" name="States" layout="grid" />
+
+`aria-invalid` colours the border and the focus ring with the danger token. Set
+it on the control, or let `Field` set it by passing an `error`.
+
+## Types
+
+<Preview file="input" name="Types" layout="grid" />
+
+`type="file"` styles the file-selector button; `type="search"` suppresses the
+browser's default clear affordance, which does not follow the design system.
+
+## Composition
+
+<Preview file="input" name="Composition" />

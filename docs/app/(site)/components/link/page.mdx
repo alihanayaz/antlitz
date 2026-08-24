@@ -1,0 +1,46 @@
+export const metadata = { title: "Link" };
+
+# Link
+
+A hyperlink. Detects external URLs and sets the right `rel` and `target`
+without being told.
+
+```tsx
+import { Link } from "antlitz";
+```
+
+In a Next.js app, import from `antlitz/next` instead — same props, rendered
+through `next/link` so client-side navigation works.
+
+```tsx
+import { Link } from "antlitz/next";
+```
+
+## API
+
+<PropsTable component="Link" />
+
+## Variants
+
+<Preview file="link" name="Variants" layout="col" />
+
+External links get `target="_blank"` and `rel="noopener noreferrer"`
+automatically. Internal ones do not, so in-app navigation is never hijacked
+into a new tab.
+
+`variant="plain"` removes the underline and colour, for links already styled by
+what they wrap — a card, a logo, a nav item.
+
+## Referrer
+
+<Preview file="link" name="Referrer" />
+
+`refValue` appends a referrer parameter to external URLs — useful when linking
+out to your own properties and you want the traffic attributed.
+
+## Composition
+
+<Preview file="link" name="Composition" />
+
+`asChild` lets another component provide the styling while Link keeps the
+anchor semantics and external-URL handling.

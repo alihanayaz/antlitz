@@ -1,0 +1,74 @@
+export const metadata = { title: "Theme" };
+
+# Theme
+
+Every colour in the system comes from a named token. Components never reach for
+a palette value, so restyling the system means redefining tokens rather than
+overriding components.
+
+```css
+@import "tailwindcss";
+@import "antlitz/theme.css";
+```
+
+## Tokens
+
+<TokenTable />
+
+Each token is exposed to Tailwind as `--color-<name>`, so it is available
+wherever a colour utility is: `bg-muted`, `text-foreground-subtle`,
+`border-border`.
+
+The names describe a role, not a hue. `--danger` is the colour of a
+destructive action; `--danger-soft` is the quiet fill behind a message about
+one. Every `-foreground` token is the text colour that meets contrast on the
+surface of the same name.
+
+## Overriding
+
+Redefine a token after the import and every component that uses it follows.
+
+```css
+@import "antlitz/theme.css";
+
+:root {
+  --primary: oklch(55% 0.2 265);
+  --primary-hover: oklch(48% 0.2 265);
+}
+```
+
+Values are `oklch`, which keeps lightness perceptually even across hues — a
+`-hover` step darkens by the same amount whether the base is red or blue.
+
+## Dark mode
+
+Dark values live under a `.dark` class, not a media query, so the choice is the
+application's to make.
+
+```tsx
+<html className="dark">
+```
+
+The variant is defined as `&:where(.dark, .dark *)`, which adds no specificity —
+a `dark:` utility beats its light counterpart by order alone.
+
+## Other tokens
+
+`--font-sans` and `--font-mono` read `--font-geist-sans` and
+`--font-geist-mono` first, so a Next.js app that loads those fonts gets them
+without further configuration and any other app falls back to the system
+stack.
+
+`--default-transition-duration` is `150ms`, which is what every component's
+`transition-colors` resolves to.
+
+## The link utility
+
+`link` is the underline treatment `Link` and Typeset both apply, available as a
+utility for anchors you style yourself.
+
+```tsx
+<a href="/somewhere" className="link">
+  Read more
+</a>
+```

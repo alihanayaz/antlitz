@@ -1,0 +1,35 @@
+export const metadata = { title: "Separator" };
+
+# Separator
+
+A dividing line between sections. Renders an `hr`.
+
+```tsx
+import { Separator } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Separator" />
+
+## Horizontal
+
+<Preview file="separator" name="Horizontal" layout="col" />
+
+## Vertical
+
+<Preview file="separator" name="Vertical" />
+
+A vertical separator needs a parent with a resolved height — it is `h-full`, so
+it collapses inside a container that sizes to its content.
+
+## Decorative
+
+<Preview file="separator" name="Decorative" layout="col" />
+
+`decorative` sets `role="none"` and `aria-hidden`, removing the rule from the
+accessibility tree. Use it when the line is purely visual and the sections
+either side are already distinguished by headings or landmarks.
+
+Leave it off when the rule is the only thing separating two groups of content,
+where its implicit `separator` role carries meaning.

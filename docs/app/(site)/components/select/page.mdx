@@ -1,0 +1,44 @@
+export const metadata = { title: "Select" };
+
+# Select
+
+A single choice from a list. Renders a native `select`, so the option list is
+the platform's — correct on touch devices and with a screen reader, at the cost
+of not being stylable.
+
+```tsx
+import { Select } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Select" />
+
+Like `Input`, the native `size` attribute is removed from the type so it cannot
+collide with the variant prop.
+
+## Variants
+
+<Preview file="select" name="Variants" layout="grid" />
+
+## Sizes
+
+<Preview file="select" name="Sizes" layout="grid" />
+
+Heights match `Input` exactly at every size, so the two line up in a form.
+
+## Radius
+
+<Preview file="select" name="Radius" layout="grid" />
+
+## States
+
+<Preview file="select" name="States" layout="grid" />
+
+The chevron is decorative and hidden from assistive technology; it is omitted
+entirely when `multiple` is set, since a multi-select has no collapsed state to
+indicate.
+
+## Composition
+
+<Preview file="select" name="Composition" />

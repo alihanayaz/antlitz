@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "antlitz/theme.css";
+@import "antlitz/typeset.css";
+
+@source "../../dist";

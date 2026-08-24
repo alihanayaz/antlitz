@@ -3,7 +3,6 @@ node_modules/
 
 # build output
 dist/
-playground/dist/
 
 # typescript
 *.tsbuildinfo
@@ -14,3 +13,8 @@ playground/dist/
 .env
 .env.*
 !.env.example
+
+# docs
+docs/.next/
+docs/out/
+docs/generated/

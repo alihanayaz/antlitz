@@ -1,0 +1,43 @@
+export const metadata = { title: "Image" };
+
+# Image
+
+An image with a fallback and a load reveal.
+
+```tsx
+import { Image } from "antlitz";
+```
+
+In a Next.js app, import from `antlitz/next` to render through `next/image`
+with its optimisation and layout handling.
+
+```tsx
+import { Image } from "antlitz/next";
+```
+
+## API
+
+<PropsTable component="Image" />
+
+`alt` is required — an image with no alt text is either decorative, in which
+case pass an empty string deliberately, or it is missing information.
+
+## Usage
+
+<Preview file="image" name="Basic" />
+
+## Fallback
+
+<Preview file="image" name="Fallback" />
+
+Both of these images point at sources that cannot resolve. An empty or
+whitespace-only `src` takes the fallback without waiting for a failed request.
+
+## Loading
+
+Images carry a muted background while they load, so layout does not flash
+white, and fade in once decoded. Images already in the browser cache skip the
+animation — the reveal only runs when there was actually a wait.
+
+This is the one animation in the package gated behind `motion-safe`: it is
+decorative, unlike the Spinner, which conveys state.

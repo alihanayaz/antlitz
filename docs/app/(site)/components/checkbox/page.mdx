@@ -1,0 +1,46 @@
+export const metadata = { title: "Checkbox" };
+
+# Checkbox
+
+A binary choice. Renders a native checkbox with `appearance: none`, so keyboard
+handling, form submission, and the `indeterminate` state come from the
+platform.
+
+```tsx
+import { Checkbox } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Checkbox" />
+
+`indeterminate` has no HTML attribute — it is a DOM property — so the component
+sets it on the element through a ref.
+
+## Usage
+
+<Preview file="checkbox" name="Basic" />
+
+## States
+
+<Preview file="checkbox" name="States" />
+
+Invalid fills the box with the danger token rather than only colouring its
+border: a 1px outline on a 16px box is too little signal to notice.
+
+## Sizes
+
+<Preview file="checkbox" name="Sizes" />
+
+The check mark is 65% of the box at every size, so it scales with it.
+
+## Radius
+
+<Preview file="checkbox" name="Radius" />
+
+## Grouping
+
+<Preview file="checkbox" name="Group" />
+
+Related checkboxes belong in a `Fieldset`, which gives the group a `legend` and
+one shared error message.

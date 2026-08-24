@@ -1,0 +1,40 @@
+export const metadata = { title: "Radio" };
+
+# Radio
+
+One choice from several. Radios sharing a `name` form a group natively —
+including arrow-key navigation and single selection — so no group component is
+required to make them behave.
+
+```tsx
+import { Radio } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Radio" />
+
+`radius` defaults to `full` rather than `none` — the only component in the
+system that does, because a square radio reads as a checkbox.
+
+## Usage
+
+<Preview file="radio" name="Group" />
+
+The shared `name` is what makes these one group. `Fieldset` adds the semantic
+half: a `legend` naming the group, and somewhere for a shared error to live.
+
+A group without a `legend` is announced as a series of unrelated options, so
+reach for `Fieldset` rather than a heading above a plain `div`.
+
+## States
+
+<Preview file="radio" name="States" />
+
+## Sizes
+
+<Preview file="radio" name="Sizes" />
+
+## Radius
+
+<Preview file="radio" name="Radius" />

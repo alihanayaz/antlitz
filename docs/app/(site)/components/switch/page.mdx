@@ -1,0 +1,41 @@
+export const metadata = { title: "Switch" };
+
+# Switch
+
+Toggles a setting that takes effect immediately. Renders a native checkbox with
+`role="switch"`, so keyboard and form behaviour come from the platform.
+
+```tsx
+import { Switch } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Switch" />
+
+Because it is a checkbox underneath, every `input` attribute applies: `checked`,
+`defaultChecked`, `disabled`, `name`, `onChange`.
+
+## Usage
+
+<Preview file="switch" name="Basic" />
+
+Pair it with a `Label` or a `Field` — the switch renders no text, and an
+unlabelled toggle is not usable with a screen reader.
+
+## Sizes
+
+<Preview file="switch" name="Sizes" />
+
+The thumb is inset by 2px at every size, so the proportions hold as the track
+grows.
+
+## States
+
+<Preview file="switch" name="States" />
+
+## Controlled
+
+<Preview file="switch" name="Controlled" layout="col" />
+
+State is ordinary React — there is no context or provider involved.

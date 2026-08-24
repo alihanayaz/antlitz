@@ -1,0 +1,33 @@
+{
+  "name": "@antlitz/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "props": "node scripts/extract-props.mjs",
+    "predev": "pnpm --filter antlitz build && pnpm props",
+    "dev": "next dev",
+    "prebuild": "pnpm --filter antlitz build && pnpm props",
+    "build": "next build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "antlitz": "workspace:*",
+    "next": "16.2.12",
+    "next-themes": "^0.4.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.3.0",
+    "@tailwindcss/postcss": "^4.3.2",
+    "@types/mdx": "^2.0.13",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.3.2",
+    "typescript": "^6.0.3"
+  }
+}

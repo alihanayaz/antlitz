@@ -1,0 +1,45 @@
+export const metadata = { title: "Alert" };
+
+# Alert
+
+A short message about the state of the page or an action. Renders a `div` with
+`role="alert"` unless told otherwise.
+
+```tsx
+import { Alert } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Alert" />
+
+`live` sets `aria-live` and defaults to `off`. Use `polite` for a message that
+appears after load — a save confirmation — so a screen reader announces it
+without interrupting. Reserve `assertive` for content the user must act on.
+
+An alert present on first render needs no live region: it is read as part of
+the page.
+
+## Variants
+
+<Preview file="alert" name="Variants" layout="col" />
+
+## Sizes
+
+<Preview file="alert" name="Sizes" layout="col" />
+
+## Radius
+
+<Preview file="alert" name="Radius" layout="col" />
+
+## Tones
+
+<Preview file="alert" name="Tones" layout="col" />
+
+## Composition
+
+<Preview file="alert" name="Composition" />
+
+Alert is a flex row aligned to the top, and any direct `svg` child is set to
+one line height — so an icon lines up with the first line of text rather than
+centring against the whole block.

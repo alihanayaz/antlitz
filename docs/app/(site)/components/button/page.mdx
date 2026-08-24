@@ -1,0 +1,56 @@
+export const metadata = { title: "Button" };
+
+# Button
+
+Triggers an action. Renders a native `button` unless `asChild` is set, in which
+case it forwards its styling to whatever it wraps.
+
+```tsx
+import { Button } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Button" />
+
+Every remaining prop is forwarded to the underlying element, so
+`React.ButtonHTMLAttributes` applies in full.
+
+## Variants
+
+<Preview file="button" name="Variants" />
+
+`link` styles the button as inline text, for destructive confirmations that
+should not look like primary actions.
+
+## Sizes
+
+<Preview file="button" name="Sizes" />
+
+`icon` is square and expects a single `Icon` child rather than a label.
+`size="md"` matches `Input` `size="md"`, so a field and its button line up.
+
+## Radius
+
+<Preview file="button" name="Radius" />
+
+## Tones
+
+<Preview file="button" name="Tones" />
+
+Tone shifts the foreground only, so it applies to variants that do not paint a
+background of their own.
+
+## States
+
+<Preview file="button" name="States" />
+
+`loading` swaps in a `Spinner` and sets `aria-busy`. It also disables the
+button, so `loading` and `disabled` need not be combined.
+
+## Composition
+
+<Preview file="button" name="Composition" />
+
+`asChild` merges Button's styling onto its child rather than nesting an
+element, which avoids invalid `a > button` markup.

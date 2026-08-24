@@ -1,0 +1,37 @@
+export const metadata = { title: "Badge" };
+
+# Badge
+
+A small label for status, counts, or categories.
+
+```tsx
+import { Badge } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Badge" />
+
+## Variants
+
+<Preview file="badge" name="Variants" />
+
+## Sizes
+
+<Preview file="badge" name="Sizes" />
+
+## Radius
+
+<Preview file="badge" name="Radius" />
+
+## Tones
+
+<Preview file="badge" name="Tones" />
+
+## Composition
+
+<Preview file="badge" name="Composition" />
+
+Badge keeps `border border-transparent` in its base rather than only on the
+outline variant. Without it, switching to `outline` would change the badge's
+size — which matters here because badges usually sit inline with text.

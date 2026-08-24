@@ -1,0 +1,42 @@
+export const metadata = { title: "Heading" };
+
+# Heading
+
+A section heading. Size and semantics are separate props, so a visually small
+heading can still be an `h2` where the document structure calls for one.
+
+```tsx
+import { Heading } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Heading" />
+
+`as` accepts `h1` through `h6` only — a heading component that could render a
+`div` would defeat the point.
+
+## Sizes
+
+<Preview file="heading" name="Sizes" layout="col" />
+
+Every size steps up one level from the `lg` breakpoint, so headings stay in
+proportion on small screens without a second set of props.
+
+## Weights
+
+<Preview file="heading" name="Weights" layout="col" />
+
+## Tones
+
+<Preview file="heading" name="Tones" layout="col" />
+
+## Semantics
+
+<Preview file="heading" name="Semantics" layout="col" />
+
+Choose `as` from the document outline and `size` from the design. Skipping
+heading levels to get a smaller size is the mistake this split prevents.
+
+Headings are `text-balance`, so short headings break into even lines rather
+than leaving one word alone.

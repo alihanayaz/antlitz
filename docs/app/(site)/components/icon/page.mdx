@@ -1,0 +1,44 @@
+export const metadata = { title: "Icon" };
+
+# Icon
+
+An SVG wrapper. It sets the viewBox, sizing, and stroke defaults so icon paths
+can be dropped in as children.
+
+```tsx
+import { Icon } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Icon" />
+
+`size` is a number in pixels rather than a variant name, because icons are
+sized to the text beside them rather than to a scale.
+
+`as` renders a different component while keeping Icon's props — how an icon
+from a library like `lucide-react` inherits the system's sizing and stroke
+treatment.
+
+## Variants
+
+<Preview file="icon" name="Variants" />
+
+`stroke` sets `fill-none stroke-current` with a 2px round-capped stroke, `fill`
+sets `fill-current stroke-none`, and `plain` leaves both alone for
+multi-colour artwork.
+
+## Sizes
+
+<Preview file="icon" name="Sizes" />
+
+Children are raw SVG elements — `path`, `circle`, `rect` — drawn on a 24×24
+viewBox. antlitz ships no icon set; use any library's paths, or your own.
+
+## Accessibility
+
+<Preview file="icon" name="Accessibility" />
+
+An Icon is `aria-hidden` unless given an `aria-label`, so decorative icons
+beside text are skipped rather than announced twice. Label it only when the
+icon is the sole content of a control.
