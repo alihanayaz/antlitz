@@ -1,0 +1,59 @@
+export const metadata = { title: "Disclosure" };
+
+# Disclosure
+
+A section that expands and collapses. Renders a native `details` and `summary`,
+so the toggle, the keyboard handling and the open state all come from the
+platform — there is no JavaScript in this component at all.
+
+```tsx
+import { Disclosure } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Disclosure" />
+
+`summary` is the always-visible trigger; `children` are revealed when it opens.
+Every remaining prop reaches the `details` element, including the native `open`
+attribute.
+
+## Usage
+
+<Preview file="disclosure" name="Basic" layout="col" />
+
+## Accordion
+
+<Preview file="disclosure" name="Accordion" layout="col" />
+
+Disclosures sharing a `name` form an accordion: opening one closes the others.
+That is native to `details`, the way a shared `name` makes radios a group, so
+there is no separate `Accordion` here. Without a `name` they open
+independently, and one on its own is what other systems call a `Collapsible`.
+
+## Variants
+
+<Preview file="disclosure" name="Variants" layout="col" />
+
+There is no `solid` variant. A disclosure is chrome around content the reader
+has not asked for yet, and inverting it would give a collapsed panel more
+weight than the page around it.
+
+## Sizes
+
+<Preview file="disclosure" name="Sizes" layout="col" />
+
+Size changes padding only, never the text size, so a disclosure inherits the
+type scale of whatever surrounds it.
+
+## Radius
+
+<Preview file="disclosure" name="Radius" layout="col" />
+
+## Initial state
+
+<Preview file="disclosure" name="Open" layout="col" />
+
+`open` is a native attribute, so the expanded state is in the HTML rather than
+applied after hydration. Content inside a closed disclosure is still in the
+document — it is reachable by find-in-page and read by search engines.

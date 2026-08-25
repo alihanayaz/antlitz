@@ -22,6 +22,7 @@ const sections = [
       { name: "Button", href: "/components/button" },
       { name: "Card", href: "/components/card" },
       { name: "Checkbox", href: "/components/checkbox" },
+      { name: "Disclosure", href: "/components/disclosure" },
       { name: "Field", href: "/components/field" },
       { name: "Fieldset", href: "/components/fieldset" },
       { name: "Heading", href: "/components/heading" },
