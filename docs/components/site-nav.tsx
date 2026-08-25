@@ -19,6 +19,7 @@ const sections = [
     items: [
       { name: "Alert", href: "/components/alert" },
       { name: "Badge", href: "/components/badge" },
+      { name: "Breadcrumb", href: "/components/breadcrumb" },
       { name: "Button", href: "/components/button" },
       { name: "Card", href: "/components/card" },
       { name: "Checkbox", href: "/components/checkbox" },

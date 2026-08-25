@@ -1,0 +1,65 @@
+export const metadata = { title: "Breadcrumb" };
+
+# Breadcrumb
+
+The trail to the current page. Renders a labelled `nav` around an ordered
+list, and marks the last entry as the current page.
+
+```tsx
+import { Breadcrumb } from "antlitz";
+```
+
+In a Next.js app, take the crumbs from `antlitz/next` so they navigate on the
+client. Breadcrumb never constructs the links, only arranges them.
+
+```tsx
+import { Link } from "antlitz/next";
+```
+
+## API
+
+<PropsTable component="Breadcrumb" />
+
+Each child becomes one crumb. Breadcrumb wraps it in an `li`, inserts the
+separators, and adds `aria-current="page"` to the last one — cloning it when
+it is an element, wrapping it in a `span` when it is plain text.
+
+It takes children rather than an array of links so that a crumb can be
+anything — a `Link`, an icon, an ellipsis. An `items` prop would have to
+construct the links, and so choose one kind for you.
+
+## Usage
+
+<Preview file="breadcrumb" name="Basic" />
+
+The last crumb is plain text here. It names the page the reader is already on,
+so a link back to it adds a target without adding a destination.
+
+Ancestor crumbs are muted and the current one is not, which is styling rather
+than markup: the `nav` sets the muted colour and anything carrying
+`aria-current` takes it back.
+
+## Separator
+
+<Preview file="breadcrumb" name="Separator" />
+
+The default is a chevron. Separators are decorative and hidden from assistive
+technology — the list structure already conveys the nesting, and hearing
+"slash" between every crumb conveys nothing.
+
+## Composition
+
+<Preview file="breadcrumb" name="WithIcon" />
+
+A crumb is whatever you pass. An icon-only crumb still needs a name, so label
+the link rather than the icon — the link is what gets announced.
+
+## Collapsing a long trail
+
+<Preview file="breadcrumb" name="Collapsed" />
+
+Deep hierarchies read better with the middle removed. The ellipsis is
+`aria-hidden`, so the trail is announced as the levels that remain rather than
+as an unexplained character.
+
+For a version that expands, put a `Disclosure` in that position.
