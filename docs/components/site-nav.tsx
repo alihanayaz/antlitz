@@ -32,6 +32,7 @@ const sections = [
       { name: "Input", href: "/components/input" },
       { name: "Label", href: "/components/label" },
       { name: "Link", href: "/components/link" },
+      { name: "Pagination", href: "/components/pagination" },
       { name: "Progress", href: "/components/progress" },
       { name: "Radio", href: "/components/radio" },
       { name: "Select", href: "/components/select" },

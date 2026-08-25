@@ -13,6 +13,7 @@ export * from "./image";
 export * from "./input";
 export * from "./label";
 export * from "./link";
+export * from "./pagination";
 export * from "./progress";
 export * from "./radio";
 export * from "./select";

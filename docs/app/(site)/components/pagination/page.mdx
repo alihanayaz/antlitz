@@ -1,0 +1,59 @@
+export const metadata = { title: "Pagination" };
+
+# Pagination
+
+Links to the other pages of a list. Renders a labelled `nav` around an
+unordered list and gives every entry the same hit target.
+
+```tsx
+import { Pagination } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Pagination" />
+
+Each child becomes one entry, wrapped in an `li`. Mark the current page with
+`aria-current="page"` and it is announced as current and filled in — the
+attribute does both jobs, so nothing has to be styled by hand.
+
+Like `Breadcrumb`, it takes children rather than a page count, so an entry can
+be a link, a `Button` that submits, or a span.
+
+## Usage
+
+<Preview file="pagination" name="Basic" />
+
+The list is unordered. Breadcrumb uses an ordered list because its entries
+nest inside one another; pages sit beside each other, and a screen reader
+counting them off as "1 of 3" would be describing the widget rather than the
+content.
+
+## Truncating
+
+<Preview file="pagination" name="Truncated" />
+
+The ellipsis is `aria-hidden`, so the trail is announced as the pages that are
+actually reachable.
+
+Which pages to show is not decided here. The range around the current page —
+how many siblings, where the gaps fall — depends on how long the list is and
+how wide the layout is, and a component that guessed would be wrong often
+enough to need overriding every time. It is a few lines of arithmetic that
+belong next to the data.
+
+## Previous and next
+
+<Preview file="pagination" name="PrevNext" />
+
+An arrow with no text needs a name. Label the link rather than the icon: the
+link is what is announced.
+
+## At the edges
+
+<Preview file="pagination" name="Edges" />
+
+On the first page there is no previous page to link to. Render the arrow as a
+non-link carrying `aria-disabled="true"` — Pagination dims it and takes it out
+of the pointer flow. A disabled `a` with an `href` would still be focusable
+and still navigate.
