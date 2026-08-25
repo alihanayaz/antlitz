@@ -1,5 +1,4 @@
-import { Text } from "antlitz";
-import { Table } from "@/components/table";
+import { Table, Text } from "antlitz";
 import generated from "@/generated/props.json";
 
 type Entry = {
@@ -31,21 +30,30 @@ export function PropsTable({ component }: { component: string }) {
   }
 
   return (
-    <Table headings={["Prop", "Type", "Default"]}>
-      {entry.props.map((prop) => (
-        <tr key={prop.name}>
-          <td>
-            {prop.name}
-            {prop.required && (
-              <span aria-hidden="true" className="text-foreground-danger">
-                *
-              </span>
-            )}
-          </td>
-          <td className="text-foreground-muted">{prop.type}</td>
-          <td className="text-foreground-subtle">{prop.default ?? "—"}</td>
+    <Table className="my-6 [&_td]:align-top [&_td]:font-mono">
+      <thead>
+        <tr>
+          <th>Prop</th>
+          <th>Type</th>
+          <th>Default</th>
         </tr>
-      ))}
+      </thead>
+      <tbody>
+        {entry.props.map((prop) => (
+          <tr key={prop.name}>
+            <td>
+              {prop.name}
+              {prop.required && (
+                <span aria-hidden="true" className="text-foreground-danger">
+                  *
+                </span>
+              )}
+            </td>
+            <td className="text-foreground-muted">{prop.type}</td>
+            <td className="text-foreground-subtle">{prop.default ?? "—"}</td>
+          </tr>
+        ))}
+      </tbody>
     </Table>
   );
 }

@@ -1,0 +1,70 @@
+export const metadata = { title: "Table" };
+
+# Table
+
+Chrome for a data table. You write the `thead`, `tbody`, `tr`, `th` and `td`
+yourself; Table styles them and puts the whole thing in a box that scrolls
+sideways when it has to.
+
+```tsx
+import { Table } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Table" />
+
+There is no `TableRow` or `TableCell` here. Table styles native markup through
+descendant selectors, the same way the Typeset stylesheet styles a table that
+arrives from a CMS — one component instead of seven, and `colSpan`, `scope`,
+`tfoot` and the rest keep working because they were never taken away.
+
+`className` styles the box; every other prop reaches the `table`. Cell rules
+live on the box too, so an override merges with them rather than fighting
+them.
+
+```tsx
+<Table className="my-6 [&_td]:px-6">
+```
+
+## Usage
+
+<Preview file="table" name="Basic" />
+
+## Variants
+
+<Preview file="table" name="Variants" />
+
+`plain` drops the outer border for a table that sits inside a `Card` or
+another container that already has one.
+
+## Sizes
+
+<Preview file="table" name="Sizes" />
+
+Size sets cell padding. It leaves the text size alone, so a table matches the
+density of the page rather than shifting its type.
+
+## Radius
+
+<Preview file="table" name="Radius" />
+
+Rounding lives on the box rather than the table. A `border-collapse` table
+cannot clip its own corners — the cells in them spill past the curve — which
+is why the box exists at all.
+
+## Caption and alignment
+
+<Preview file="table" name="Caption" />
+
+A `caption` is the table's accessible name and is announced before its
+contents, which beats a heading above it that nothing connects.
+
+Alignment is per cell: numbers read better against the end edge, and
+`tabular-nums` keeps the digits in columns.
+
+## Rendered tables
+
+Table is for markup you author. For a table inside long-form content — a
+markdown file, a CMS field — the Typeset stylesheet already styles the same
+elements, and no component is involved.

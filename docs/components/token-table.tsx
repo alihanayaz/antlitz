@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { Table } from "@/components/table";
+import { Table } from "antlitz";
 
 const themeFile = path.join(process.cwd(), "..", "src", "styles", "theme.css");
 
@@ -10,14 +10,23 @@ export async function TokenTable() {
   const dark = { ...light, ...parse(css, ".dark {") };
 
   return (
-    <Table headings={["Token", "Light", "Dark"]}>
-      {Object.keys(light).map((name) => (
-        <tr key={name}>
-          <td>{`--${name}`}</td>
-          <Swatch value={light[name]} />
-          <Swatch value={dark[name]} />
+    <Table className="my-6 [&_td]:font-mono">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Light</th>
+          <th>Dark</th>
         </tr>
-      ))}
+      </thead>
+      <tbody>
+        {Object.keys(light).map((name) => (
+          <tr key={name}>
+            <td>{`--${name}`}</td>
+            <Swatch value={light[name]} />
+            <Swatch value={dark[name]} />
+          </tr>
+        ))}
+      </tbody>
     </Table>
   );
 }

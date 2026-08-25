@@ -39,6 +39,7 @@ const sections = [
       { name: "Skeleton", href: "/components/skeleton" },
       { name: "Spinner", href: "/components/spinner" },
       { name: "Switch", href: "/components/switch" },
+      { name: "Table", href: "/components/table" },
       { name: "Text", href: "/components/text" },
       { name: "Textarea", href: "/components/textarea" },
     ],
