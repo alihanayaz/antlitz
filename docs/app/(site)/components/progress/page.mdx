@@ -1,0 +1,61 @@
+export const metadata = { title: "Progress" };
+
+# Progress
+
+A bar showing how far along a task is. For work with no proportion to show,
+reach for `Spinner` instead.
+
+```tsx
+import { Progress } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Progress" />
+
+`value` is required and is clamped into `0`–`max`, so an out-of-range number
+from a calculation cannot render a bar wider than its track.
+
+## Usage
+
+<Preview file="progress" name="Basic" layout="col" />
+
+## Sizes
+
+<Preview file="progress" name="Sizes" layout="col" />
+
+## Radius
+
+<Preview file="progress" name="Radius" layout="col" />
+
+## Invalid
+
+<Preview file="progress" name="Invalid" layout="col" />
+
+`aria-invalid` turns the fill red — the same attribute every other component in
+the system reacts to, rather than a variant of its own. Use it when the value
+is a problem rather than a milestone: a quota nearly spent, a budget overrun.
+
+## Scale
+
+<Preview file="progress" name="Scale" layout="col" />
+
+`max` sets the upper bound. Steps and counts read better against their own
+scale than converted to a percentage, and the number a screen reader announces
+comes from `max` too.
+
+## Labelling
+
+<Preview file="progress" name="Labelled" layout="col" />
+
+A progress bar needs an accessible name. Pass `aria-label`, or point
+`aria-labelledby` at text already on the page — the second is better when the
+label is visible, since the two cannot then drift apart.
+
+## Not a native progress
+
+This is a `div` with `role="progressbar"` rather than a native `progress`
+element, which can only be styled through engine-specific pseudo-elements —
+`::-webkit-progress-value`, `::-moz-progress-bar` — that no utility can reach
+and that disagree on rounding and transitions. The role carries the same
+information to assistive technology.
