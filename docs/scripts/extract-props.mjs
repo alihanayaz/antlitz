@@ -180,15 +180,18 @@ function order(values, src, name) {
 }
 
 function readDefaults(src) {
-  const at = src.indexOf("defaultVariants");
-  if (at === -1) return {};
-  const block = src.slice(at, src.indexOf("}", at));
-  return Object.fromEntries(
-    [...block.matchAll(/(\w+):\s*"([^"]+)"/g)].map((match) => [
-      match[1],
-      match[2],
-    ]),
-  );
+  const defaults = {};
+  for (
+    let at = src.indexOf("defaultVariants");
+    at !== -1;
+    at = src.indexOf("defaultVariants", at + 1)
+  ) {
+    const block = src.slice(at, src.indexOf("}", at));
+    for (const match of block.matchAll(/(\w+):\s*"([^"]+)"/g)) {
+      defaults[match[1]] ??= match[2];
+    }
+  }
+  return defaults;
 }
 
 function blockAfter(src, opening) {
