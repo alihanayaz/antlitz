@@ -1,0 +1,72 @@
+export const metadata = { title: "Slider" };
+
+# Slider
+
+A value chosen from a range. Renders a native `input type="range"`, so
+dragging, arrow keys, `Home` and `End`, and form submission all come from the
+platform.
+
+```tsx
+import { Slider } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Slider" />
+
+`size` is antlitz's own prop, not the native `size` attribute, and `type` is
+fixed. Everything else is a native range input: `min`, `max`, `step`, `value`,
+`defaultValue`, `disabled`, `name`, `onChange`.
+
+## Usage
+
+<Preview file="slider" name="Basic" layout="col" />
+
+A slider renders no text of its own, so give it a name — through `Field`, a
+`Label`, or `aria-label` when neither fits.
+
+## Sizes
+
+<Preview file="slider" name="Sizes" layout="col" />
+
+## Radius
+
+<Preview file="slider" name="Radius" layout="col" />
+
+Radius applies to the track and the thumb together. The default is `none`,
+like everything else in the system — a square thumb still reads as a handle,
+unlike a square radio, which reads as a checkbox.
+
+## Steps
+
+<Preview file="slider" name="Steps" layout="col" />
+
+`min`, `max` and `step` are native. A stepped slider snaps and announces the
+value it landed on without any of that being implemented here.
+
+## States
+
+<Preview file="slider" name="States" layout="col" />
+
+## Styling a range input
+
+The track and the thumb are engine-specific pseudo-elements —
+`::-webkit-slider-runnable-track`, `::-moz-range-track`, and their thumbs — so
+every rule is written twice. The component carries both sets.
+
+## No filled track
+
+The portion before the thumb is not painted. Filling it means reading the
+value on every input event, which is state, and state belongs to whoever owns
+the value.
+
+When that is you, a gradient gets you there:
+
+```tsx
+<Slider
+  value={value}
+  onChange={(event) => setValue(Number(event.target.value))}
+  className="[&::-webkit-slider-runnable-track]:bg-[linear-gradient(to_right,var(--color-primary)_var(--fill),var(--color-muted)_var(--fill))]"
+  style={{ "--fill": `${value}%` }}
+/>
+```

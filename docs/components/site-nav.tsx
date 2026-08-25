@@ -37,6 +37,7 @@ const sections = [
       { name: "Select", href: "/components/select" },
       { name: "Separator", href: "/components/separator" },
       { name: "Skeleton", href: "/components/skeleton" },
+      { name: "Slider", href: "/components/slider" },
       { name: "Spinner", href: "/components/spinner" },
       { name: "Switch", href: "/components/switch" },
       { name: "Table", href: "/components/table" },
