@@ -1,4 +1,5 @@
 import { Textarea } from "antlitz";
+import { RADII } from "./shared";
 
 export function Variants() {
   return (
@@ -18,6 +19,12 @@ export function Sizes() {
       <Textarea size="lg" placeholder="Large" />
     </>
   );
+}
+
+export function Radius() {
+  return RADII.map((radius) => (
+    <Textarea key={radius} radius={radius} placeholder={radius} />
+  ));
 }
 
 export function States() {
