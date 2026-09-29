@@ -1,0 +1,65 @@
+export const metadata = { title: "Code Block" };
+
+# Code Block
+
+A block of code in a box, with an optional header for a filename and an
+action.
+
+```tsx
+import { CodeBlock } from "antlitz";
+```
+
+## API
+
+<PropsTable component="CodeBlock" />
+
+`className` styles the box; every other prop reaches the `pre`.
+
+## Usage
+
+<Preview file="code-block" name="Basic" layout="stack" />
+
+CodeBlock renders the `pre` itself. Preserved whitespace is what makes a code
+block a code block, so leaving that element to the caller would mean the
+component breaks whenever someone forgets it.
+
+## Header
+
+<Preview file="code-block" name="Title" layout="stack" />
+
+The header appears only when there is a `title` or an `action`.
+
+## Action
+
+<Preview file="code-block" name="Action" layout="stack" />
+
+`action` is a slot at the end of the header, which is where a copy button
+usually goes. Copying needs the clipboard and a piece of state, so the button
+belongs to the app rather than the design system — this way CodeBlock renders
+on the server and ships no JavaScript.
+
+## Variants
+
+<Preview file="code-block" name="Variants" layout="stack" />
+
+## Sizes
+
+<Preview file="code-block" name="Sizes" layout="stack" />
+
+## Radius
+
+<Preview file="code-block" name="Radius" layout="stack" />
+
+## Highlighting
+
+<Preview file="code-block" name="Highlighted" layout="stack" />
+
+CodeBlock takes code that is already highlighted and does not highlight
+anything itself. A syntax highlighter is a large dependency, its output is
+tied to a theme, and the good ones run at build time — none of which belongs
+in a component. Pass a string for plain code, or the markup a highlighter
+produced for coloured code.
+
+Nested `code` elements are reset to inherit the block's font and size, so
+highlighter output keeps its own colours without picking up inline `Code`
+styling.

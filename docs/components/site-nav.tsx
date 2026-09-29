@@ -23,6 +23,8 @@ const sections = [
       { name: "Button", href: "/components/button" },
       { name: "Card", href: "/components/card" },
       { name: "Checkbox", href: "/components/checkbox" },
+      { name: "Code", href: "/components/code" },
+      { name: "Code Block", href: "/components/code-block" },
       { name: "Disclosure", href: "/components/disclosure" },
       { name: "Field", href: "/components/field" },
       { name: "Fieldset", href: "/components/fieldset" },

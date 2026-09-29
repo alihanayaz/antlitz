@@ -1,0 +1,45 @@
+export const metadata = { title: "Code" };
+
+# Code
+
+A fragment of code inside a line of text — a prop name, a command, a file path.
+
+```tsx
+import { Code } from "antlitz";
+```
+
+## API
+
+<PropsTable component="Code" />
+
+## Usage
+
+<Preview file="code" name="Basic" />
+
+## Variants
+
+<Preview file="code" name="Variants" />
+
+## Sizes
+
+<Preview file="code" name="Sizes" />
+
+Size sets padding. The text size is `0.875em`, relative to whatever contains
+it, so a fragment stays proportional to the sentence it sits in rather than
+snapping to a fixed scale.
+
+<Preview file="code" name="InText" />
+
+## Radius
+
+<Preview file="code" name="Radius" />
+
+## Tones
+
+<Preview file="code" name="Tones" />
+
+## Prose
+
+Code is for interface text — a table cell, a label, a caption. Inside content
+rendered with the Typeset stylesheet, a plain `code` element is already styled
+and no component is needed.

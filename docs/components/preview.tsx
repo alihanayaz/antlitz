@@ -8,6 +8,7 @@ const layouts = {
   row: "flex flex-wrap items-center gap-4",
   col: "flex w-full max-w-sm flex-col gap-4",
   grid: "grid w-full max-w-2xl items-start gap-3 md:grid-cols-3",
+  stack: "flex w-full flex-col gap-4",
 };
 
 export async function Preview({
