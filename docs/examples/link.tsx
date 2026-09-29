@@ -14,7 +14,7 @@ export function Variants() {
 
 export function Referrer() {
   return (
-    <Link href="https://example.com" refValue="antlitz.dev">
+    <Link href="https://example.com" refValue="antlitz.vercel.app">
       External link with a referrer parameter
     </Link>
   );

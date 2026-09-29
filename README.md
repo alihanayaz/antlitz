@@ -44,7 +44,9 @@ the Typeset stylesheet and wrap the output in `typeset`.
 
 ## Documentation
 
-Every component has a page with live examples, its full API, and usage notes.
+**[antlitz.vercel.app](https://antlitz.vercel.app)** — every component has a page
+with live examples, its full API, and usage notes.
+
 The docs app lives in [`docs/`](./docs) and is versioned with the package.
 
 Release notes live on the [releases page](https://github.com/alihanayaz/antlitz/releases).

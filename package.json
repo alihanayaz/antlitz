@@ -2,13 +2,20 @@
   "name": "antlitz",
   "version": "0.16.0",
   "description": "A minimal design system for React and Tailwind CSS. Atomic components and design tokens.",
-  "homepage": "https://github.com/alihanayaz/antlitz#readme",
+  "homepage": "https://antlitz.vercel.app",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alihanayaz/antlitz.git"
   },
   "bugs": "https://github.com/alihanayaz/antlitz/issues",
   "license": "MIT",
+  "keywords": [
+    "design-system",
+    "react",
+    "tailwindcss",
+    "components",
+    "ui"
+  ],
   "author": {
     "name": "Alihan Ayaz",
     "email": "alihan@alihanayaz.com",
